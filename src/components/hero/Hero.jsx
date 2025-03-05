@@ -1,7 +1,15 @@
 import React from 'react';
 import { ReactTyped } from "react-typed";
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+
+  const navigate = useNavigate();
+
+  const navToSignUp = () => {
+    navigate('/login');
+  };
+
   return (
     <div className='text-white bg-gradient-to-b from-black via-gray-900 to-black h-screen flex items-center'>
 
@@ -33,7 +41,7 @@ const Hero = () => {
           Comprify POS helps businesses streamline transactions, manage inventory, and boost sales with ease.
         </p>
         <button className='bg-[#00df9a] w-[200px] rounded-md font-medium my-6 mx-auto py-3 text-black 
-transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-500 cursor-pointer'>
+transition duration-300 ease-in-out transform hover:scale-105 hover:bg-green-500 cursor-pointer' onClick={navToSignUp}>
   Get Started
 </button>
 
