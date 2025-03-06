@@ -9,7 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/login" element={<LogIn />}></Route>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/" element={<Dashboard />}></Route>
+        {/* <Route exact path="/" element={<LandingPage />} /> */}
       </Routes>
     </Router>
   );
