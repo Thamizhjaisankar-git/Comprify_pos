@@ -19,16 +19,18 @@ export default function SidebarDropDown({ icon, text, subItems = [] }) {
             onMouseLeave={() => !expanded && setHover(false)} // Close submenu when leaving hover
         >
             {/* Main Sidebar Item */}
-            <div 
-                className={`relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-gray-800 `} 
-                onClick={() => expanded && setOpen(!open)} // Click to open only when expanded
-            >
-                {icon}
-                <span className={`ml-3 flex-1 transition-all ${expanded ? "w-auto" : "w-0 overflow-hidden"}`}>
-                    {text}
-                </span>
-                {expanded && (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
-            </div>
+<div 
+    className={`relative flex items-center py-2 px-4 my-4 font-medium rounded-md cursor-pointer transition-colors group hover:bg-indigo-50 text-gray-800 
+        ${expanded ? "justify-start" : "justify-center py-2 px-2"}`}  // Adjust padding when collapsed
+    onClick={() => expanded && setOpen(!open)} 
+>
+    {icon}
+    <span className={`ml-3 flex-1 transition-all ${expanded ? "w-auto" : "hidden"}`}>
+        {text}
+    </span>
+    {expanded && (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
+</div>
+
 
             {/* Submenu (Expands inside when expanded, Slides out on hover when collapsed) */}
             {(open && expanded) || (!expanded && hover) ? (

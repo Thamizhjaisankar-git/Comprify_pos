@@ -9,8 +9,9 @@ export default function Sidebar({ children }) {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <aside className="h-[calc(100vh-4rem)] mt-16 z-50 relative">
-            <nav className="h-full flex flex-col bg-blue-300 border-r shadow-sm transition-all">
+        <aside className="h-[calc(100vh-4rem)] mt-16 z-50 relative ">
+           <nav className={`h-full flex flex-col bg-blue-300 border-r shadow-sm transition-all ${expanded ? "expanded overflow-y-auto max-h-[calc(100vh-4rem)]" : "overflow-visible"}`}>
+
                 {/* Sidebar Header */}
                 <div className="p-3 flex justify-between items-center">
                     <img 

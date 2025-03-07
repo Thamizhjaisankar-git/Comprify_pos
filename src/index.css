@@ -11,3 +11,24 @@
 .btn-outline {
   @apply border border-gray-400 text-gray-300 font-bold py-2 px-6 rounded-full uppercase tracking-wide hover:bg-gray-400 hover:text-black transition cursor-pointer;
 }
+
+::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: #e2e8f0; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568; /* Thumb color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748; /* Hover color */
+}
+
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-track { background: #e2e8f0; }
+.sidebar::-webkit-scrollbar-thumb { background: #4a5568; border-radius: 10px; }

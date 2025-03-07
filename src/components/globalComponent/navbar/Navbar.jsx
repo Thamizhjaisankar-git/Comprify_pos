@@ -7,9 +7,10 @@ export default function Navbar() {
             
             {/* Left Section - Menu */}
             <div className="flex items-center">
-                <button className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200">
-                    <Menu size={24} className="text-gray-700" />
-                </button>
+            <div className="flex items-center gap-2 cursor-pointer">
+                    <img src={profile} className="w-10 h-10 rounded-full bg-transparent" alt="User Profile" />
+                    <span className=" font-medium">Comprify</span>
+                </div>
             </div>
 
             {/* Middle Section - Fixed Search Bar */}
@@ -29,10 +30,6 @@ export default function Navbar() {
                 <button className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200">
                     <User size={20} className="text-gray-700" />
                 </button>
-                <div className="flex items-center gap-2 cursor-pointer">
-                    <img src={profile} className="w-10 h-10 rounded-full bg-transparent" alt="User Profile" />
-                    <span className="hidden lg:block font-medium">Comprify</span>
-                </div>
             </div>
 
         </nav>
