@@ -1,14 +1,17 @@
+import { useSelector } from "react-redux";
 import { LayoutDashboard, ShoppingCart, CreditCard, Users, Package, Truck, Briefcase, DollarSign, FileText, Settings } from "lucide-react";
 import Sidebar, { SidebarItem } from "../../components/globalComponent/sidebar/Sidebar";
 import SidebarDropDown from "../../components/globalComponent/sidebar/SidebarDropDown"; 
 import Navbar from "../../components/globalComponent/navbar/Navbar";
 
 function HomePage() {
+  const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
+
+
   return (
-    <div className="flex h-screen text-black bg-gradient-to-b from-black via-gray-900 to-black ">
+    <div className="flex h-screen text-black bg-gradient-to-b from-black via-gray-900 to-black">
       {/* Sidebar */}
       <Sidebar>
-        {/* Dashboard */}
         <SidebarDropDown 
           icon={<LayoutDashboard size={20} />} 
           text="Dashboard"
@@ -19,7 +22,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Sales & Transactions */}
         <SidebarDropDown 
           icon={<ShoppingCart size={20} />} 
           text="Sales & Transactions"
@@ -35,7 +37,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Customers & Loyalty */}
         <SidebarDropDown 
           icon={<Users size={20} />} 
           text="Customers & Loyalty"
@@ -47,7 +48,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Products & Inventory */}
         <SidebarDropDown 
           icon={<Package size={20} />} 
           text="Products & Inventory"
@@ -62,7 +62,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Suppliers & Purchases */}
         <SidebarDropDown 
           icon={<Truck size={20} />} 
           text="Suppliers & Purchases"
@@ -73,7 +72,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Employees & Users */}
         <SidebarDropDown 
           icon={<Briefcase size={20} />} 
           text="Employees & Users"
@@ -85,7 +83,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Expenses & Taxes */}
         <SidebarDropDown 
           icon={<DollarSign size={20} />} 
           text="Expenses & Taxes"
@@ -96,7 +93,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Reports & Logs */}
         <SidebarDropDown 
           icon={<FileText size={20} />} 
           text="Reports & Logs"
@@ -109,7 +105,6 @@ function HomePage() {
           ]}
         />
 
-        {/* Settings & Store Management */}
         <SidebarDropDown 
           icon={<Settings size={20} />} 
           text="Settings & Store Management"
@@ -122,14 +117,14 @@ function HomePage() {
       </Sidebar>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col ">
+      <div className="flex-1 flex flex-col">
         {/* Navbar - Fixed at the top */}
         <Navbar />
 
         {/* Main Content Area */}
         <main className="p-6 pt-20 text-white">
-          <h1 className="text-2xl font-bold">Home Page Content</h1>
-          <p>Welcome to the Home Page. Add your content here.</p>
+          <h1 className="text-2xl font-bold">{selectedMenu ? `${selectedMenu} Page` : "Home Page"}</h1>
+          <p>{selectedMenu ? `Displaying content for ${selectedMenu}.` : "Welcome to the Home Page. Select an option from the sidebar."}</p>
         </main>
       </div>
     </div>
