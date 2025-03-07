@@ -30,7 +30,7 @@ export default function Navbar() {
                     <User size={20} className="text-gray-700" />
                 </button>
                 <div className="flex items-center gap-2 cursor-pointer">
-                    <img src={profile} className="w-10 h-10 rounded-full" alt="User Profile" />
+                    <img src={profile} className="w-10 h-10 rounded-full bg-transparent" alt="User Profile" />
                     <span className="hidden lg:block font-medium">Comprify</span>
                 </div>
             </div>
