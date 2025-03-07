@@ -3,10 +3,21 @@ import { LayoutDashboard, ShoppingCart, CreditCard, Users, Package, Truck, Brief
 import Sidebar, { SidebarItem } from "../../components/globalComponent/sidebar/Sidebar";
 import SidebarDropDown from "../../components/globalComponent/sidebar/SidebarDropDown"; 
 import Navbar from "../../components/globalComponent/navbar/Navbar";
+import AddCustomer from "../customer/AddCustomer";
+import AddProduct from "../products/AddProduct";
 
 function HomePage() {
   const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
-
+  const renderPage = () => {
+    switch (selectedMenu) {
+      case "Add Customer":
+        return <AddCustomer />;
+        case "Add Product":
+        return <AddProduct />;
+      default:
+        return <h1 className="text-2xl font-bold">Welcome to {selectedMenu} Page</h1>;
+    }
+  };
 
   return (
     <div className="flex h-screen text-black bg-gradient-to-b from-black via-gray-900 to-black">
@@ -36,17 +47,18 @@ function HomePage() {
             { icon: <FileText size={18} />, text: "Transactions" }
           ]}
         />
+<SidebarDropDown 
+  icon={<Users size={20} />} 
+  text="Customers & Loyalty"
+  subItems={[
+    { icon: <FileText size={18} />, text: "Add Customer", onClick: () => handleMenuClick("Add Customer") },
+    { icon: <FileText size={18} />, text: "Customer List", onClick: () => handleMenuClick("Customer List") },
+    { icon: <FileText size={18} />, text: "Customer Transactions", onClick: () => handleMenuClick("Customer Transactions") },
+    { icon: <FileText size={18} />, text: "Loyalty Program", onClick: () => handleMenuClick("Loyalty Program") }
+  ]}
+/>
 
-        <SidebarDropDown 
-          icon={<Users size={20} />} 
-          text="Customers & Loyalty"
-          subItems={[
-            { icon: <FileText size={18} />, text: "Add Customer" },
-            { icon: <FileText size={18} />, text: "Customer List" },
-            { icon: <FileText size={18} />, text: "Customer Transactions" },
-            { icon: <FileText size={18} />, text: "Loyalty Program" }
-          ]}
-        />
+
 
         <SidebarDropDown 
           icon={<Package size={20} />} 
@@ -123,8 +135,7 @@ function HomePage() {
 
         {/* Main Content Area */}
         <main className="p-6 pt-20 text-white">
-          <h1 className="text-2xl font-bold">{selectedMenu ? `${selectedMenu} Page` : "Home Page"}</h1>
-          <p>{selectedMenu ? `Displaying content for ${selectedMenu}.` : "Welcome to the Home Page. Select an option from the sidebar."}</p>
+          {renderPage()} {/* Dynamically render the selected page */}
         </main>
       </div>
     </div>

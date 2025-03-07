@@ -3,6 +3,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 import { SidebarContext } from "./Sidebar"; // Import SidebarContext
 import { useDispatch } from "react-redux";
 import { setSelectedMenu } from "../../../redux/menuSlice"; // Import Redux action
+import { Link } from "react-router-dom";
 
 export default function SidebarDropDown({ icon, text, subItems = [] }) {
     const { expanded } = useContext(SidebarContext); // Get sidebar state
@@ -37,23 +38,24 @@ export default function SidebarDropDown({ icon, text, subItems = [] }) {
             {/* Submenu (Expands inside when expanded, Slides out on hover when collapsed) */}
             {(open && expanded) || (!expanded && hover) ? (
                 <ul 
-                    className={`absolute bg-white border border-gray-200 rounded-md shadow-md transition-all overflow-hidden ${
-                        expanded 
-                            ? "relative w-full ml-0 border-none shadow-none bg-transparent px-5"  // Inside sidebar when expanded
-                            : "left-full border-5 top-0 ml-4 w-40 bg-white shadow-lg" // Outside when collapsed
-                    }`}
-                >
-                    {subItems.map((item, index) => (
-                        <li 
-                            key={index} 
+                className={`absolute bg-white border border-gray-200 rounded-md shadow-md transition-all overflow-hidden ${
+                    expanded 
+                        ? "relative w-full ml-0 border-none shadow-none bg-transparent px-5"  // Inside sidebar when expanded
+                        : "left-full border-5 top-0 ml-4 w-40 bg-white shadow-lg" // Outside when collapsed
+                }`}
+            >
+                {subItems.map((item, index) => (
+                    <li key={index} onClick={() => dispatch(setSelectedMenu(item.text))}>
+                        <Link
+                            to={item.path} // Use the path provided in subItems
                             className="flex items-center py-2 px-3 text-sm text-gray-800 hover:bg-indigo-50 rounded-md transition-colors"
-                            onClick={() => dispatch(setSelectedMenu(item.text))} // Redux dispatch
                         >
                             {item.icon}
                             <span className="ml-3">{item.text}</span>
-                        </li>
-                    ))}
-                </ul>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
             ) : null}
         </div>
     );

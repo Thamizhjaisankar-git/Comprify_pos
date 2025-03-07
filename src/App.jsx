@@ -5,6 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "./redux/store";
 import LogIn from "./pages/loginPage/LogIn";
 import Home from "./pages/home/Home";
+import AddCustomer from "./pages/customer/AddCustomer"; // Import the new page
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
           <Routes>
             <Route exact path="/login" element={<LogIn />} />
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/add-customer" element={<AddCustomer />} /> 
           </Routes>
         </Router>
       </PersistGate>
     </Provider>
   );
-}
+}  
 
 export default App;
