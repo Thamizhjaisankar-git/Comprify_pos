@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .input-style {
   @apply w-full px-4 py-2 my-2 border border-gray-600 rounded-md bg-black text-white placeholder-gray-100;
 }

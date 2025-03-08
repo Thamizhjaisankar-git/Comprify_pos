@@ -5,6 +5,7 @@ import SidebarDropDown from "../../components/globalComponent/sidebar/SidebarDro
 import Navbar from "../../components/globalComponent/navbar/Navbar";
 import AddCustomer from "../customer/AddCustomer";
 import AddProduct from "../products/AddProduct";
+import Overview from "../dashboard/Overview";
 
 function HomePage() {
   const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
@@ -14,6 +15,8 @@ function HomePage() {
         return <AddCustomer />;
         case "Add Product":
         return <AddProduct />;
+        case "Overview":
+        return <Overview />;
       default:
         return <h1 className="text-2xl font-bold">Welcome to {selectedMenu} Page</h1>;
     }
@@ -27,7 +30,7 @@ function HomePage() {
           icon={<LayoutDashboard size={20} />} 
           text="Dashboard"
           subItems={[
-            { icon: <FileText size={18} />, text: "Overview" },
+            { icon: <FileText size={18} />, text: "Overview", onClick: () => handleMenuClick("Overview") },
             { icon: <FileText size={18} />, text: "Sales Summary" },
             { icon: <FileText size={18} />, text: "Store Performance" }
           ]}
@@ -132,9 +135,10 @@ function HomePage() {
       <div className="flex-1 flex flex-col">
         {/* Navbar - Fixed at the top */}
         <Navbar />
+        
 
         {/* Main Content Area */}
-        <main className="p-6 pt-20 text-white">
+        <main className="p-6 pt-20  text-white min-h-screen overflow-y-auto">
           {renderPage()} {/* Dynamically render the selected page */}
         </main>
       </div>

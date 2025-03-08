@@ -4,11 +4,15 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import userReducer from "./userSlice";
 import menuReducer from "./menuSlice"; // ✅ Import menuReducer
+import customerReducer from "./customerSlice"; // ✅ Import customerReducer
+import productReducer from "./productSlice"; // ✅ Import productReducer
 
 // Combine reducers
 const rootReducer = combineReducers({
   user: userReducer,
-  menu: menuReducer, // ✅ Add menuReducer
+  menu: menuReducer,
+  customer: customerReducer,
+  product: productReducer, // ✅ Add menuReducer
 });
 
 // Persist configuration
