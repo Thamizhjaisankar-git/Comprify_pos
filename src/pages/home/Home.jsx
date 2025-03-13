@@ -5,7 +5,12 @@ import SidebarDropDown from "../../components/globalComponent/sidebar/SidebarDro
 import Navbar from "../../components/globalComponent/navbar/Navbar";
 import AddCustomer from "../customer/AddCustomer";
 import AddProduct from "../products/AddProduct";
+import AddSupplier from "../supplier/AddSupplier";
 import Overview from "../dashboard/Overview";
+import ProductList from "../products/ProductList";
+import CustomerList from "../customer/CustomerList";
+import AddEmployee from "../employee/AddEmployee";
+import EmployeeList from "../employee/EmployeeList";
 
 function HomePage() {
   const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
@@ -17,6 +22,16 @@ function HomePage() {
         return <AddProduct />;
         case "Overview":
         return <Overview />;
+        case "Add Supplier":
+        return <AddSupplier />;
+        case "Product List":
+        return <ProductList />;
+        case "Customer List":
+        return <CustomerList />
+        case "Add Employee":
+        return <AddEmployee />
+        case "Employee List":
+        return <EmployeeList />
       default:
         return <h1 className="text-2xl font-bold">Welcome to {selectedMenu} Page</h1>;
     }
@@ -67,8 +82,8 @@ function HomePage() {
           icon={<Package size={20} />} 
           text="Products & Inventory"
           subItems={[
-            { icon: <FileText size={18} />, text: "Add Product" },
-            { icon: <FileText size={18} />, text: "Product List" },
+            { icon: <FileText size={18} />, text: "Add Product", onClick: () => handleMenuClick("Add Product") },
+            { icon: <FileText size={18} />, text: "Product List", onClick: () => handleMenuClick("Product List")  },
             { icon: <FileText size={18} />, text: "Categories" },
             { icon: <FileText size={18} />, text: "Promotions & Discounts" },
             { icon: <FileText size={18} />, text: "Stock & Inventory" },
@@ -81,7 +96,7 @@ function HomePage() {
           icon={<Truck size={20} />} 
           text="Suppliers & Purchases"
           subItems={[
-            { icon: <FileText size={18} />, text: "Add Supplier" },
+            { icon: <FileText size={18} />, text: "Add Supplier", onClick: () => handleMenuClick("Add Supplier") },
             { icon: <FileText size={18} />, text: "Supplier List" },
             { icon: <FileText size={18} />, text: "Supplier Transactions" }
           ]}
