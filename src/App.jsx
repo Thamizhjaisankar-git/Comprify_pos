@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import store, { persistor } from "./redux/store";
 import LogIn from "./pages/loginPage/LogIn";
 import Home from "./pages/home/Home";
-
+import StoreInfoPage from "./pages/store/StoreInfoPage";
 import PrivateRoute from "./privateRoute"; // Import PrivateRoute component
 
 function App() {
@@ -16,6 +16,9 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <Router>
           <Routes>
+
+          <Route path="/store-info" element={<StoreInfoPage />} />
+
             {/* Private Route: Only accessible if logged in */}
             <Route path="/" element={<PrivateRoute Component={Home} />} />
 

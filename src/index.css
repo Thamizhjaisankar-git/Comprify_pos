@@ -42,3 +42,73 @@ html, body {
 .sidebar::-webkit-scrollbar { width: 8px; }
 .sidebar::-webkit-scrollbar-track { background: #e2e8f0; }
 .sidebar::-webkit-scrollbar-thumb { background: #02102b; border-radius: 10px; }
+
+/* Add this to your CSS file or inside a <style> tag */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 800px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #2d2d2d;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #4f46e5;
+}
+
+.input-field1 {
+  @apply w-full bg-gray-800 border border-gray-600 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+
+.input-field1:focus {
+  @apply bg-white text-black;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(15px); /* Added for Safari support */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+

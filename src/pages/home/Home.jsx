@@ -11,6 +11,10 @@ import ProductList from "../products/ProductList";
 import CustomerList from "../customer/CustomerList";
 import AddEmployee from "../employee/AddEmployee";
 import EmployeeList from "../employee/EmployeeList";
+import CreateBill from "../bill/CreateBill";
+import BillList from "../bill/BillList";
+import CreateCategory from "../category/CreateCategory";
+import StoreInformationView from "../store/StoreInformationView";
 
 function HomePage() {
   const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
@@ -32,6 +36,14 @@ function HomePage() {
         return <AddEmployee />
         case "Employee List":
         return <EmployeeList />
+        case "Create Bill":
+        return <CreateBill />
+        case "Bill List":
+        return <BillList />
+        case "Categories":
+        return <CreateCategory />
+        case "Store Information":
+        return <StoreInformationView />
       default:
         return <h1 className="text-2xl font-bold">Welcome to {selectedMenu} Page</h1>;
     }
@@ -60,7 +72,7 @@ function HomePage() {
             { icon: <FileText size={18} />, text: "Returns & Refunds" },
             { icon: <FileText size={18} />, text: "Bills & Receipts" },
             { icon: <FileText size={18} />, text: "Create Bill" },
-            { icon: <FileText size={18} />, text: "Bill List" },
+            { icon: <FileText size={18} />, text: "Bill List", onClick: () => handleMenuClick("Add Bill") },
             { icon: <FileText size={18} />, text: "Receipts" },
             { icon: <FileText size={18} />, text: "Transactions" }
           ]}
@@ -84,7 +96,7 @@ function HomePage() {
           subItems={[
             { icon: <FileText size={18} />, text: "Add Product", onClick: () => handleMenuClick("Add Product") },
             { icon: <FileText size={18} />, text: "Product List", onClick: () => handleMenuClick("Product List")  },
-            { icon: <FileText size={18} />, text: "Categories" },
+            { icon: <FileText size={18} />, text: "Categories" , onClick: () => handleMenuClick("Add Category") },
             { icon: <FileText size={18} />, text: "Promotions & Discounts" },
             { icon: <FileText size={18} />, text: "Stock & Inventory" },
             { icon: <FileText size={18} />, text: "Stock List" },

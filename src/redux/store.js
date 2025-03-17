@@ -9,6 +9,8 @@ import productReducer from "./productSlice";
 // ✅ Import productReducer
 import supplierReducer from "./supplierSlice";
 import employeeReducer from "./employeeSlice"; // ✅ Import employeeReducer
+import categoryReducer from "./categorySlice";
+import storeReducer from "./storeSlice";
 
 
 // Combine reducers
@@ -18,7 +20,9 @@ const rootReducer = combineReducers({
   customer: customerReducer,
   product: productReducer,
   supplier: supplierReducer,
-  employee: employeeReducer // ✅ Add menuReducer
+  employee: employeeReducer, // ✅ Add menuReducer
+  category: categoryReducer,
+  store: storeReducer,
 });
 
 // Persist configuration
