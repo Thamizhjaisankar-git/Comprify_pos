@@ -11,7 +11,7 @@ import supplierReducer from "./supplierSlice";
 import employeeReducer from "./employeeSlice"; // ✅ Import employeeReducer
 import categoryReducer from "./categorySlice";
 import storeReducer from "./storeSlice";
-
+import orderReducer from "./orderSlice"
 
 // Combine reducers
 const rootReducer = combineReducers({
@@ -23,6 +23,7 @@ const rootReducer = combineReducers({
   employee: employeeReducer, // ✅ Add menuReducer
   category: categoryReducer,
   store: storeReducer,
+  orders: orderReducer // ✅ Add onlineOrderReducer
 });
 
 // Persist configuration

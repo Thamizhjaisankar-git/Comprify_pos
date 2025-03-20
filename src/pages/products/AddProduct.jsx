@@ -175,18 +175,155 @@
 
 // export default AddProduct;
 
+// import React, { useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { addProduct } from "../../redux/productSlice";
+// import config from "../../config";
+// import axios from "axios";
+
+// const AddProduct = () => {
+//   const dispatch = useDispatch();
+//   const [product, setProduct] = useState({
+//     product_code: "",
+//     product_name: "",
+//     category_id: "",
+//     unit: "",
+//     mrp: "",
+//     landing_cost: "",
+//     net_cost: "",
+//     basic_cost: "",
+//     profit_percent: "",
+//     selling_price: "",
+//     stock_quantity: "",
+//     supplier_id: "",
+//     status: "active",
+//   });
+
+//   const handleChange = (e) => {
+//     setProduct({ ...product, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     const token = localStorage.getItem("token");
+//     if (!token) {
+//       console.error("No authentication token found.");
+//       return;
+//     }
+
+//     try {
+//       const response = await axios.post(`${config.serverApi}/pos/product`, product, {
+//         headers: { Authorization: `Bearer ${token}` },
+//       });
+
+//       console.log("Product Added:", response.data);
+//       dispatch(addProduct(response.data));
+
+//       // Reset form
+//       setProduct({
+//         product_code: "",
+//         product_name: "",
+//         category_id: "",
+//         unit: "",
+//         mrp: "",
+//         landing_cost: "",
+//         net_cost: "",
+//         basic_cost: "",
+//         profit_percent: "",
+//         selling_price: "",
+//         stock_quantity: "",
+//         supplier_id: "",
+//         status: "active",
+//       });
+//     } catch (error) {
+//       console.error("Error adding product:", error.response?.data || error.message);
+//     }
+//   };
+
+//   return (
+//     <div className="p-6 bg-gray-800 text-white rounded-lg shadow-md w-full h-full">
+//       {/* Header */}
+//       <h1 className="text-2xl font-bold mb-4">Add New Product</h1>
+
+//       {/* Form */}
+//       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+//         {/* Product Fields */}
+//         {[
+//           { name: "product_code", label: "Product Code" },
+//           { name: "product_name", label: "Product Name" },
+//           { name: "category_id", label: "Category ID" },
+//           { name: "mrp", label: "MRP" },
+//           { name: "landing_cost", label: "Landing Cost" },
+//           { name: "net_cost", label: "Net Cost" },
+//           { name: "basic_cost", label: "Basic Cost" },
+//           { name: "profit_percent", label: "Profit Percent" },
+//           { name: "selling_price", label: "Selling Price" },
+//           { name: "stock_quantity", label: "Stock Quantity" },
+//           { name: "supplier_id", label: "Supplier ID" },
+//         ].map((field) => (
+//           <div key={field.name}>
+//             <label className="block mb-1 text-sm">{field.label}</label>
+//             <input
+//               type="text"
+//               name={field.name}
+//               value={product[field.name]}
+//               onChange={handleChange}
+//               className="w-full p-2 border border-gray-600 bg-gray-900 rounded"
+//               required
+//             />
+//           </div>
+//         ))}
+
+//         {/* Unit Selection */}
+//         <div>
+//           <label className="block mb-1 text-sm">Unit</label>
+//           <select name="unit" value={product.unit} onChange={handleChange} className="w-full p-2 border border-gray-600 bg-gray-900 rounded" required>
+//             <option value="">Select Unit</option>
+//             <option value="kg">Kg</option>
+//             <option value="liters">Liters</option>
+//             <option value="pcs">Pcs</option>
+//           </select>
+//         </div>
+
+//         {/* Status */}
+//         <div>
+//           <label className="block mb-1 text-sm">Status</label>
+//           <select name="status" value={product.status} onChange={handleChange} className="w-full p-2 border border-gray-600 bg-gray-900 rounded" required>
+//             <option value="active">Active</option>
+//             <option value="inactive">Inactive</option>
+//           </select>
+//         </div>
+
+//         {/* Submit Button */}
+//         <div className="col-span-2 flex justify-center mt-4">
+//           <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded">
+//             Add Product
+//           </button>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default AddProduct;
+
+
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../redux/productSlice";
 import config from "../../config";
 import axios from "axios";
 
 const AddProduct = () => {
   const dispatch = useDispatch();
+  const { categories } = useSelector((state) => state.category);
+
   const [product, setProduct] = useState({
     product_code: "",
     product_name: "",
     category_id: "",
+    subcategory_id: "",
     unit: "",
     mrp: "",
     landing_cost: "",
@@ -199,10 +336,12 @@ const AddProduct = () => {
     status: "active",
   });
 
+  // Handle Input Changes
   const handleChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
+  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -225,6 +364,7 @@ const AddProduct = () => {
         product_code: "",
         product_name: "",
         category_id: "",
+        subcategory_id: "",
         unit: "",
         mrp: "",
         landing_cost: "",
@@ -242,17 +382,55 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-800 text-white rounded-lg shadow-md w-full h-full">
-      {/* Header */}
+    <div className="p-3 bg-gray-800 text-white rounded-lg shadow-md w-full h-full overflow-auto">
       <h1 className="text-2xl font-bold mb-4">Add New Product</h1>
 
-      {/* Form */}
       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
-        {/* Product Fields */}
+        {/* Category Selection */}
+        <div>
+          <label className="block mb-1 text-sm">Category</label>
+          <select
+            name="category_id"
+            value={product.category_id}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-600 bg-gray-900 rounded"
+            required
+          >
+            <option value="">Select Category</option>
+            {categories.map((category) => (
+              <option key={category.name} value={category.name}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Subcategory Selection */}
+        <div>
+          <label className="block mb-1 text-sm">Subcategory</label>
+          <select
+            name="subcategory_id"
+            value={product.subcategory_id}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-600 bg-gray-900 rounded"
+            required
+            disabled={!product.category_id} // Disable if no category selected
+          >
+            <option value="">Select Subcategory</option>
+            {categories
+              .find((cat) => cat.name === product.category_id)
+              ?.subcategories?.map((sub) => (
+                <option key={sub.name} value={sub.name}>
+                  {sub.name}
+                </option>
+              ))}
+          </select>
+        </div>
+
+        {/* Other Product Fields */}
         {[
           { name: "product_code", label: "Product Code" },
           { name: "product_name", label: "Product Name" },
-          { name: "category_id", label: "Category ID" },
           { name: "mrp", label: "MRP" },
           { name: "landing_cost", label: "Landing Cost" },
           { name: "net_cost", label: "Net Cost" },
@@ -278,7 +456,13 @@ const AddProduct = () => {
         {/* Unit Selection */}
         <div>
           <label className="block mb-1 text-sm">Unit</label>
-          <select name="unit" value={product.unit} onChange={handleChange} className="w-full p-2 border border-gray-600 bg-gray-900 rounded" required>
+          <select
+            name="unit"
+            value={product.unit}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-600 bg-gray-900 rounded"
+            required
+          >
             <option value="">Select Unit</option>
             <option value="kg">Kg</option>
             <option value="liters">Liters</option>
@@ -286,22 +470,29 @@ const AddProduct = () => {
           </select>
         </div>
 
-        {/* Status */}
+        {/* Status Selection */}
         <div>
           <label className="block mb-1 text-sm">Status</label>
-          <select name="status" value={product.status} onChange={handleChange} className="w-full p-2 border border-gray-600 bg-gray-900 rounded" required>
+          <select
+            name="status"
+            value={product.status}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-600 bg-gray-900 rounded"
+            required
+          >
             <option value="active">Active</option>
             <option value="inactive">Inactive</option>
           </select>
         </div>
 
         {/* Submit Button */}
-        <div className="col-span-2 flex justify-center mt-4">
+        <div className="col-span-2 flex justify-center mt-2">
           <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded">
             Add Product
           </button>
         </div>
       </form>
+      
     </div>
   );
 };

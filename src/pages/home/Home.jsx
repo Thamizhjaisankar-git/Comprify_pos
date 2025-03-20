@@ -15,6 +15,8 @@ import CreateBill from "../bill/CreateBill";
 import BillList from "../bill/BillList";
 import CreateCategory from "../category/CreateCategory";
 import StoreInformationView from "../store/StoreInformationView";
+import OrdersManagement from "../online/OrdersManagement";
+import OrderDetails from "../online/OrderDetails";
 
 function HomePage() {
   const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
@@ -44,6 +46,10 @@ function HomePage() {
         return <CreateCategory />
         case "Store Information":
         return <StoreInformationView />
+        case "Orders Management": 
+        return <OrdersManagement/>
+        case "Order Details":
+        return <OrderDetails/>
       default:
         return <h1 className="text-2xl font-bold">Welcome to {selectedMenu} Page</h1>;
     }
@@ -74,7 +80,9 @@ function HomePage() {
             { icon: <FileText size={18} />, text: "Create Bill" },
             { icon: <FileText size={18} />, text: "Bill List", onClick: () => handleMenuClick("Add Bill") },
             { icon: <FileText size={18} />, text: "Receipts" },
-            { icon: <FileText size={18} />, text: "Transactions" }
+            { icon: <FileText size={18} />, text: "Transactions" },
+            { icon: <FileText size={18} />, text: "Orders Management", onClick: () => handleMenuClick("Orders Management") },
+            { icon: <FileText size={18} />, text: "Order Details" , onClick: () => handleMenuClick("Order Details")}
           ]}
         />
 <SidebarDropDown 
