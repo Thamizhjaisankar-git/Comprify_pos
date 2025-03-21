@@ -32,7 +32,6 @@ function LogIn() {
   const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [showCartAnimation, setShowCartAnimation] = useState(false);
 
-
   const validatePassword = (password) => {
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
       password
@@ -53,27 +52,27 @@ function LogIn() {
 
   const intervalRef = React.useRef(null);
 
-const startTimer = () => {
-  setIsResendDisabled(true);
-  setTimer(60);
-  if (intervalRef.current) {
-    clearInterval(intervalRef.current);
-  }
-  intervalRef.current = setInterval(() => {
-    setTimer((prev) => {
-      if (prev <= 1) {
-        clearInterval(intervalRef.current);
-        setIsResendDisabled(false);
-        return 0;
-      }
-      return prev - 1;
-    });
-  }, 1000);
-};
+  const startTimer = () => {
+    setIsResendDisabled(true);
+    setTimer(60);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
+      setTimer((prev) => {
+        if (prev <= 1) {
+          clearInterval(intervalRef.current);
+          setIsResendDisabled(false);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+  };
 
-React.useEffect(() => {
-  return () => clearInterval(intervalRef.current); // Cleanup on unmount
-}, []);
+  React.useEffect(() => {
+    return () => clearInterval(intervalRef.current); // Cleanup on unmount
+  }, []);
 
   // Signup function
   const handleSignup = async () => {
@@ -95,7 +94,7 @@ React.useEffect(() => {
     setLoading(true);
     try {
       const response = await axios.post(
-        `${config.serverApi}/pos/store/signup`,
+        `${config.serverApi}/comprify/auth/signup`,
         {
           owner_name: formData.name,
           email: formData.email,
@@ -103,7 +102,7 @@ React.useEffect(() => {
         }
       );
       console.log("Signup Success:", response.data);
-      
+
       setModalIsOpen(true); // Show success modal
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
@@ -116,7 +115,6 @@ React.useEffect(() => {
       <div className="w-6 h-6 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
     </div>
   );
-  
 
   // // Login function
   // const handleLogin = async () => {
@@ -219,11 +217,11 @@ React.useEffect(() => {
   //   }
   // };
   const handleOTPVerification = () => {
-    const isStoreInfoCompleted = localStorage.getItem('storeInfoCompleted');
+    const isStoreInfoCompleted = localStorage.getItem("storeInfoCompleted");
     if (!isStoreInfoCompleted) {
-      navigate('/store-info'); // Redirect to store info page
+      navigate("/store-info"); // Redirect to store info page
     } else {
-      navigate('/'); // Redirect to home page
+      navigate("/"); // Redirect to home page
     }
   };
 
@@ -233,7 +231,7 @@ React.useEffect(() => {
       setError("Enter OTP");
       return;
     }
-  
+
     setLoading(true);
     try {
       const response = await axios.post(
@@ -243,13 +241,13 @@ React.useEffect(() => {
           otp: otp,
         }
       );
-  
+
       if (response.data.sucess) {
         console.log("Login Success:", response.data);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("userEmail", formData.email);
         localStorage.removeItem("aky");
-  
+
         // Show cart animation for 5 seconds before navigating
         setShowCartAnimation(true);
         setTimeout(() => {
@@ -262,7 +260,7 @@ React.useEffect(() => {
       setLoading(false);
     }
   };
-  
+
   const handleResendOtp = () => {
     sendOtp();
   };
@@ -341,83 +339,92 @@ React.useEffect(() => {
             onClick={handleSignup}
             disabled={loading}
           >
-            {loading ? <Loader/> : "Sign Up"}
+            {loading ? <Loader /> : "Sign Up"}
           </button>
         </motion.div>
-        {showCartAnimation? (
-  <CartAnimation key="cart" />
-) : (
-  <motion.div
-    animate={{ x: signIn ? "100%" : "0%" }}
-    transition={{ duration: 0.5 }}
-  
-    className="absolute top-0 right-0 w-full md:w-1/2 h-full flex flex-col items-center justify-center p-6 md:p-8 bg-gray-400"
-  >
-    <h2 className="text-xl md:text-xl font-bold mb-4 text-black">
-      {otpSent ? "Enter the OTP Sent to your Email" : "Sign in"}
-    </h2>
-
-    {!otpSent && (
-      <>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          className="input-style"
-          onChange={handleChange}
-        />
-        <div className="relative w-full">
-          <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="Password"
-            className="input-style"
-            onChange={handleChange}
-          />
-          <button
-            type="button"
-            className="absolute right-2 top-2"
-            onClick={() => setShowPassword(!showPassword)}
+        {showCartAnimation ? (
+          <CartAnimation key="cart" />
+        ) : (
+          <motion.div
+            animate={{ x: signIn ? "100%" : "0%" }}
+            transition={{ duration: 0.5 }}
+            className="absolute top-0 right-0 w-full md:w-1/2 h-full flex flex-col items-center justify-center p-6 md:p-8 bg-gray-400"
           >
-            {showPassword ? (
-              <EyeOffIcon className="h-10 w-5" />
-            ) : (
-              <EyeIcon className="h-10 w-5" />
+            <h2 className="text-xl md:text-xl font-bold mb-4 text-black">
+              {otpSent ? "Enter the OTP Sent to your Email" : "Sign in"}
+            </h2>
+
+            {!otpSent && (
+              <>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="input-style"
+                  onChange={handleChange}
+                />
+                <div className="relative w-full">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    className="input-style"
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-2 top-2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeOffIcon className="h-10 w-5" />
+                    ) : (
+                      <EyeIcon className="h-10 w-5" />
+                    )}
+                  </button>
+                </div>
+                <ForgotPasswordModal />
+                {error && <p className="text-black text-sm">{error}</p>}
+              </>
             )}
-          </button>
-        </div>
-        <ForgotPasswordModal />
-        {error && <p className="text-black text-sm">{error}</p>}
-      </>
-    )}
 
-    {otpSent && (
-      <div className="relative w-full">
-        <input
-          className="input-style"
-          type="text"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-          placeholder="Enter OTP"
-        />
-        <button className="btn-primary w-full md:w-auto text-sm" onClick={verifyOtp} disabled={loading}>
-          {loading ? <Loader /> : "Verify OTP"}
-        </button>
-        <button className="btn-primary w-full md:w-auto mt-2 ml-2 text-sm" onClick={handleResendOtp} disabled={isResendDisabled}>
-          {isResendDisabled ? `Resend OTP in ${timer}s` : "Resend OTP"}
-        </button>
-      </div>
-    )}
+            {otpSent && (
+              <div className="relative w-full">
+                <input
+                  className="input-style"
+                  type="text"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value)}
+                  placeholder="Enter OTP"
+                />
+                <button
+                  className="btn-primary w-full md:w-auto text-sm"
+                  onClick={verifyOtp}
+                  disabled={loading}
+                >
+                  {loading ? <Loader /> : "Verify OTP"}
+                </button>
+                <button
+                  className="btn-primary w-full md:w-auto mt-2 ml-2 text-sm"
+                  onClick={handleResendOtp}
+                  disabled={isResendDisabled}
+                >
+                  {isResendDisabled ? `Resend OTP in ${timer}s` : "Resend OTP"}
+                </button>
+              </div>
+            )}
 
-    {!otpSent && (
-      <button className="btn-primary w-full md:w-auto mt-5" onClick={sendOtp} disabled={loading}>
-        {loading ? <Loader /> : "Send OTP"}
-      </button>
-    )}
-  </motion.div>
-)}
-
-
+            {!otpSent && (
+              <button
+                className="btn-primary w-full md:w-auto mt-5"
+                onClick={sendOtp}
+                disabled={loading}
+              >
+                {loading ? <Loader /> : "Send OTP"}
+              </button>
+            )}
+          </motion.div>
+        )}
 
         {/* Overlay Container */}
         <motion.div

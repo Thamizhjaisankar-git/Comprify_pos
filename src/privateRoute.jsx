@@ -14,9 +14,9 @@ const PrivateRoute = ({ Component }) => {
   }
 
   // Redirect to store-info page if store info is not provided
-  if (!storeInfo) {
-    return <Navigate to="/store-info" />;
-  }
+  // if (!storeInfo) {
+  //   return <Navigate to="/store-info" />;
+  // }
 
   // Render the component if both token and store info exist
   return <Component />;
