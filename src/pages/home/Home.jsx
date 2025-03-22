@@ -17,6 +17,7 @@ import CreateCategory from "../category/CreateCategory";
 import StoreInformationView from "../store/StoreInformationView";
 import OrdersManagement from "../online/OrdersManagement";
 import OrderDetails from "../online/OrderDetails";
+import StockList from "../stocks/StockList";
 
 function HomePage() {
   const selectedMenu = useSelector((state) => state.menu?.selectedMenu || "Dashboard");
@@ -50,6 +51,8 @@ function HomePage() {
         return <OrdersManagement/>
         case "Order Details":
         return <OrderDetails/>
+        case "Stock List":
+          return <StockList />
       default:
         return <h1 className="text-2xl font-bold">Welcome to {selectedMenu} Page</h1>;
     }
