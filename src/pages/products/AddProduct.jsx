@@ -582,10 +582,15 @@ const AddProduct = () => {
       return;
     }
 
+    const formattedProduct = {
+      ...product,
+      product_name: product.product_name.trim().toLowerCase(),
+    };
+
     try {
       const response = await axios.post(
         `${config.serverApi}/pos/product`,
-        product,
+        formattedProduct,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
