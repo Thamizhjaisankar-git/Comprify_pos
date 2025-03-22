@@ -66,17 +66,29 @@ const ProductList = () => {
   const [showArchiveModal, setShowArchiveModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [editProductData, setEditProductData] = useState({
-    product_name: "",
+    _id: "",
+    store_id: "",
     product_code: "",
+    product_name: "",
     product_weight: 0,
     img_urls: [],
     category_id: "",
     description: "",
-    unit: "pcs",
-    pricing: [{ selling_price: 0, cost_price: 0, mrp: 0 }],
-    stock_quantity: 0,
+    unit: "",
+    pricing: [],
+    status: "active",
+    version: 1,
+    previous_versions: [],
+    archived: false,
+    created_at: "",
+    __v: 0,
+    stock_id: {
+      _id: "",
+      product_id: "",
+      store_id: "",
+      stock_quantity: 0,
+    },
   });
-
   useEffect(() => {
     const fetchProductsAndCategories = async () => {
       const token = localStorage.getItem("token");
@@ -136,12 +148,38 @@ const ProductList = () => {
     setShowArchiveModal(true);
   };
 
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   console.log(name);
+  //   console.log(value);
+  //   setEditProductData((prev) => ({
+  //     ...prev,
+  //     [name]: value,
+  //   }));
+  // };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditProductData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+
+    // Check if the input name contains a dot (indicating a nested object)
+    if (name.includes(".")) {
+      const [parentKey, childKey] = name.split(".");
+
+      // Update the nested object
+      setEditProductData((prevData) => ({
+        ...prevData,
+        [parentKey]: {
+          ...prevData[parentKey],
+          [childKey]: value,
+        },
+      }));
+    } else {
+      // Update the top-level property
+      setEditProductData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handlePricingChange = (e, index) => {
@@ -262,9 +300,9 @@ const ProductList = () => {
                   <td className="py-3 px-6 border-b border-gray-700">
                     ₹{product.pricing[0]?.selling_price?.toLocaleString()}
                   </td>
-                  {/* <td className="py-3 px-6 border-b border-gray-700">
-                    {product.stock_quantity}
-                  </td> */}
+                  <td className="py-3 px-6 border-b border-gray-700">
+                    {product.stock_id.stock_quantity}
+                  </td>
                   <td
                     className={`py-3 px-6 border-b border-gray-700 ${
                       product.status === "Out of Stock"
@@ -427,12 +465,22 @@ const ProductList = () => {
                   </div>
                 ))}
               </div>
+              {/*
+
+                <input
+                  type="number"
+                  name="stock_quantity"
+                  value={editProductData.stock_id.stock_quantity}
+                  onChange={handleInputChange}
+                  className="w-full p-2 mt-1 bg-gray-700 text-white"
+                />
+                */}
               <div className="mb-4">
                 <label className="block text-white">Stock Quantity</label>
                 <input
                   type="number"
-                  name="stock_quantity"
-                  value={editProductData.stock_quantity}
+                  name="stock_id.stock_quantity" // Use dot notation for nested objects
+                  value={editProductData.stock_id.stock_quantity}
                   onChange={handleInputChange}
                   className="w-full p-2 mt-1 bg-gray-700 text-white"
                 />
