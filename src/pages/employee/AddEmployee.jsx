@@ -11,7 +11,7 @@ const AddEmployee = () => {
     username: "",
     password: "",
     role: "",
-    employee_id: "",
+    status: "",
   });
 
   const handleChange = (e) => {
@@ -46,16 +46,18 @@ const AddEmployee = () => {
         username: "",
         password: "",
         role: "",
-        employee_id: "",
+        status: "",
       });
     } catch (error) {
-      console.error("Error adding employee:", error.response?.data || error.message);
+      console.error(
+        "Error adding employee:",
+        error.response?.data || error.message
+      );
     }
   };
 
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center min-h-screen">
-      
       {/* Title with Icon */}
       <div className="mb-4 flex items-center space-x-2 bg-gray-900 text-white mt-10 py-3 px-6 rounded-lg shadow-lg">
         <FaUserTie className="text-3xl text-blue-400" />
@@ -69,28 +71,44 @@ const AddEmployee = () => {
         {/* Scrollable Form Container */}
         <div className="max-h-[500px] overflow-y-auto pr-2">
           <form onSubmit={handleSubmit} className="space-y-4">
-            
             {/* Username */}
             <div>
               <label className="block mb-1">Username</label>
-              <input type="text" name="username" value={employee.username} onChange={handleChange} 
+              <input
+                type="text"
+                name="username"
+                value={employee.username}
+                onChange={handleChange}
                 placeholder="Enter Username"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
             </div>
 
             {/* Password */}
             <div>
               <label className="block mb-1">Password</label>
-              <input type="password" name="password" value={employee.password} onChange={handleChange} 
+              <input
+                type="password"
+                name="password"
+                value={employee.password}
+                onChange={handleChange}
                 placeholder="Enter Password"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
             </div>
 
             {/* Role Selection */}
             <div>
               <label className="block mb-1">Role</label>
-              <select name="role" value={employee.role} onChange={handleChange} required
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <select
+                name="role"
+                value={employee.role}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
                 <option value="">Select Role</option>
                 <option value="admin">Admin</option>
                 <option value="cashier">Sales Person</option>
@@ -98,16 +116,41 @@ const AddEmployee = () => {
               </select>
             </div>
 
-            {/* Employee ID */}
+            {/* Role Selection */}
             <div>
-              <label className="block mb-1">Employee ID</label>
-              <input type="text" name="employee_id" value={employee.employee_id} onChange={handleChange} 
-                placeholder="Enter Employee ID"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+              <label className="block mb-1">Status</label>
+              <select
+                name="status"
+                value={employee.status}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select Status</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
             </div>
 
+            {/* Employee ID */}
+            {/* <div>
+              <label className="block mb-1">Employee ID</label>
+              <input
+                type="text"
+                name="employee_id"
+                value={employee.employee_id}
+                onChange={handleChange}
+                placeholder="Enter Employee ID"
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+            </div> */}
+
             {/* Submit Button */}
-            <button type="submit" className="bg-blue-600 mt-3 hover:bg-blue-700 text-white px-4 py-2 rounded w-full">
+            <button
+              type="submit"
+              className="bg-blue-600 mt-3 hover:bg-blue-700 text-white px-4 py-2 rounded w-full"
+            >
               Add Employee
             </button>
           </form>
