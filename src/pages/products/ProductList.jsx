@@ -372,8 +372,8 @@ const ProductList = () => {
                   type="text"
                   name="product_code"
                   value={editProductData.product_code}
-                  onChange={handleInputChange}
                   className="w-full p-2 mt-1 bg-gray-700 text-white"
+                  readOnly
                 />
               </div>
               <div className="mb-4">
@@ -382,8 +382,8 @@ const ProductList = () => {
                   type="text"
                   name="product_name"
                   value={editProductData.product_name}
-                  onChange={handleInputChange}
                   className="w-full p-2 mt-1 bg-gray-700 text-white"
+                  readOnly
                 />
               </div>
               <div className="mb-4">
