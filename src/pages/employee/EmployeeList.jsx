@@ -18,13 +18,16 @@ const EmployeeList = () => {
       }
 
       try {
-        const response = await axios.get(`${config.serverApi}/pos/employee`, {
-          headers: { Authorization: `Bearer ${token}` }, // ✅ Send token in headers
-        });
+        const response = await axios.get(
+          `${config.serverApi}/pos/employee/store`,
+          {
+            headers: { Authorization: `Bearer ${token}` }, // ✅ Send token in headers
+          }
+        );
 
-        console.log(response.data.data);
+        console.log(response.data);
 
-        setEmployees(response.data.data); // ✅ Store response data in state
+        setEmployees(response.data.employees); // ✅ Store response data in state
       } catch (err) {
         setError(err.response?.data?.message || "Failed to fetch employees");
       } finally {
@@ -47,19 +50,38 @@ const EmployeeList = () => {
           <table className="min-w-full bg-gray-800 text-white border border-gray-700 rounded-lg">
             <thead className="bg-gray-900">
               <tr>
-                <th className="py-3 px-6 text-left border-b border-gray-700">S.No</th>
-                <th className="py-3 px-6 text-left border-b border-gray-700">Username</th>
-                <th className="py-3 px-6 text-left border-b border-gray-700">Employee ID</th>
-                <th className="py-3 px-6 text-left border-b border-gray-700">Role</th>
+                <th className="py-3 px-6 text-left border-b border-gray-700">
+                  S.No
+                </th>
+                <th className="py-3 px-6 text-left border-b border-gray-700">
+                  Username
+                </th>
+                <th className="py-3 px-6 text-left border-b border-gray-700">
+                  Employee ID
+                </th>
+                <th className="py-3 px-6 text-left border-b border-gray-700">
+                  Role
+                </th>
               </tr>
             </thead>
             <tbody>
               {employees.map((employee, index) => (
-                <tr key={employee.id} className={index % 2 === 0 ? "bg-gray-700" : "bg-gray-600"}>
-                  <td className="py-3 px-6 border-b border-gray-700">{index + 1}</td>
-                  <td className="py-3 px-6 border-b border-gray-700">{employee.username}</td>
-                  <td className="py-3 px-6 border-b border-gray-700">{employee.employee_id}</td>
-                  <td className="py-3 px-6 border-b border-gray-700 capitalize">{employee.role}</td>
+                <tr
+                  key={employee.id}
+                  className={index % 2 === 0 ? "bg-gray-700" : "bg-gray-600"}
+                >
+                  <td className="py-3 px-6 border-b border-gray-700">
+                    {index + 1}
+                  </td>
+                  <td className="py-3 px-6 border-b border-gray-700">
+                    {employee.username}
+                  </td>
+                  <td className="py-3 px-6 border-b border-gray-700">
+                    {employee.employee_id}
+                  </td>
+                  <td className="py-3 px-6 border-b border-gray-700 capitalize">
+                    {employee.role}
+                  </td>
                 </tr>
               ))}
             </tbody>
