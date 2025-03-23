@@ -454,7 +454,7 @@ const CreateBill = () => {
 
     const newBill = {
       bill_number: `BILL-${Date.now()}`,
-      userId,
+      customer_id : userId,
       email,
       name: customerName,
       phone: phoneNumber,
