@@ -216,11 +216,12 @@ function LogIn() {
   //     setLoading(false);
   //   }
   // };
-  const handleOTPVerification = () => {
-    const isStoreInfoCompleted = localStorage.getItem("storeInfoCompleted");
-    if (!isStoreInfoCompleted) {
+  const handleOTPVerification = (data) => {
+    if (!data.address || data.store_name == "") {
+      localStorage.setItem("storeData", JSON.stringify(data));
       navigate("/store-info"); // Redirect to store info page
     } else {
+      localStorage.setItem("storeData", JSON.stringify(data));
       navigate("/"); // Redirect to home page
     }
   };
@@ -251,7 +252,7 @@ function LogIn() {
         // Show cart animation for 5 seconds before navigating
         setShowCartAnimation(true);
         setTimeout(() => {
-          handleOTPVerification(); // Check store info and navigate accordingly
+          handleOTPVerification(response.data.store); // Check store info and navigate accordingly
         }, 5000);
       }
     } catch (err) {

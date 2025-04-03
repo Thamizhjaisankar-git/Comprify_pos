@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Plus, ShoppingCart, History } from "lucide-react";
 import AddCartModal from "../../components/Add-cart-model";
 import CartDetails from "../../components/Cart-details";
@@ -7,13 +7,33 @@ import {
   sampleCarts,
   sampleHistory,
 } from "../../../sample-data";
+import axios from "axios";
+import config from "../../config";
 
 export default function Dashboard() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedTrolley, setSelectedTrolley] = useState(null);
-  const [trolleys, setTrolleys] = useState(sampleTrolleys);
+  const [trolleys, setTrolleys] = useState([]);
 
-  const handleAddTrolley = (newTrolley) => {
+  const handleAddTrolley = async (newTrolley) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No authentication token found.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        `${config.serverApi}/pos/smart-trolley`,
+        newTrolley,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log("Trolley Added:", response.data);
+    } catch (error) {
+      console.log(error);
+    }
     setTrolleys([...trolleys, newTrolley]);
     setIsAddModalOpen(false);
   };
@@ -30,6 +50,31 @@ export default function Dashboard() {
         return "bg-gray-100 text-gray-800";
     }
   };
+
+  const getStoreTrolleys = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No authentication token found.");
+      return;
+    }
+
+    try {
+      const response = await axios.get(
+        `${config.serverApi}/pos/smart-trolley`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log("All Trolleys:", response.data);
+      setTrolleys(response.data.trolleys);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getStoreTrolleys();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -64,9 +109,7 @@ export default function Dashboard() {
               cart={sampleCarts.find(
                 (cart) => cart.trolley_id === selectedTrolley.trolley_code
               )}
-              history={sampleHistory.filter(
-                (h) => h.trolley_id === selectedTrolley.trolley_code
-              )}
+              history={selectedTrolley?.history || []}
             />
           </div>
         ) : (
@@ -87,9 +130,9 @@ export default function Dashboard() {
                         <h3 className="text-lg font-medium text-gray-900">
                           Trolley #{trolley.trolley_code}
                         </h3>
-                        <p className="text-sm text-gray-500">
+                        {/* <p className="text-sm text-gray-500">
                           Store: {trolley.store_name}
-                        </p>
+                        </p> */}
                       </div>
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(

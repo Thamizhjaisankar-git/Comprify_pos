@@ -4,15 +4,25 @@ import { useDispatch } from "react-redux";
 import { addCustomer } from "../../redux/customerSlice";
 import config from "../../config"; // Import backend URL config
 import axios from "axios";
+import CustomToast from "../../components/globalComponent/customToast/CustomToast";
 
 const AddCustomer = () => {
   const dispatch = useDispatch();
   const [customer, setCustomer] = useState({
-    customer_name: "",
+    name: "",
     phone_number: "",
     email: "",
-    address: "",
   });
+  const [toast, setToast] = useState({
+    show: false,
+    body: "",
+    status: "success",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const showToast = (message, status) => {
+    setToast({ show: true, body: message, status });
+  };
 
   const handleChange = (e) => {
     setCustomer({ ...customer, [e.target.name]: e.target.value });
@@ -28,10 +38,16 @@ const AddCustomer = () => {
     }
 
     try {
+      setLoading(true);
       // ✅ Send customer data with token in headers
       const response = await axios.post(
-        `${config.serverApi}/pos/customer`, // Adjust endpoint if needed
-        customer,
+        `${config.serverApi}/app/auth/signup`, // Adjust endpoint if needed
+        {
+          name: customer.name,
+          phone_number: customer.phone_number,
+          email: customer.email,
+          password: customer.phone_number,
+        },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -43,19 +59,28 @@ const AddCustomer = () => {
 
       // ✅ Reset form after submission
       setCustomer({
-        customer_name: "",
+        name: "",
         phone_number: "",
         email: "",
-        address: "",
       });
+
+      showToast(
+        "User created! Use phone number as a password to login in COMPRIFY...",
+        "success"
+      );
     } catch (error) {
-      console.error("Error adding customer:", error.response?.data || error.message);
+      console.error(
+        "Error adding customer:",
+        error.response?.data || error.message
+      );
+      showToast("Internal server error! please try again later...", "error");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center min-h-screen">
-
       {/* Title with Icon */}
       <div className="mb-4 flex items-center space-x-2 bg-gray-900 text-white mt-10 py-3 px-6 rounded-lg shadow-lg">
         <FaUser className="text-3xl text-yellow-400" />
@@ -69,46 +94,88 @@ const AddCustomer = () => {
         {/* Scrollable Form Container */}
         <div className="max-h-[500px] overflow-y-auto pr-2">
           <form onSubmit={handleSubmit} className="space-y-4">
-            
             {/* Customer Name */}
             <div>
               <label className="block mb-1">Customer Name</label>
-              <input type="text" name="customer_name" value={customer.customer_name} onChange={handleChange} 
+              <input
+                type="text"
+                name="name"
+                value={customer.name}
+                onChange={handleChange}
                 placeholder="Enter Customer Name"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500" required />
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                required
+              />
             </div>
 
             {/* Contact Number */}
             <div>
               <label className="block mb-1">Phone Number</label>
-              <input type="text" name="phone_number" value={customer.phone_number} onChange={handleChange} 
+              <input
+                type="text"
+                name="phone_number"
+                value={customer.phone_number}
+                onChange={handleChange}
                 placeholder="Enter Contact Number"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500" required />
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                required
+              />
             </div>
 
             {/* Email */}
             <div>
               <label className="block mb-1">Email</label>
-              <input type="email" name="email" value={customer.email} onChange={handleChange} 
+              <input
+                type="email"
+                name="email"
+                value={customer.email}
+                onChange={handleChange}
                 placeholder="Enter Email"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500" />
-            </div>
-
-            {/* Address */}
-            <div>
-              <label className="block mb-1">Address</label>
-              <input type="text" name="address" value={customer.address} onChange={handleChange} 
-                placeholder="Enter Address"
-                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+                className="w-full p-3 border border-gray-600 bg-gray-900 text-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="bg-yellow-600 mt-3 hover:bg-yellow-700 text-white px-4 py-2 rounded w-full">
-              Add Customer
+            <button
+              type="submit"
+              className="bg-yellow-600 mt-3 hover:bg-yellow-700 text-white px-4 py-2 rounded w-full flex items-center justify-center"
+              disabled={loading} // Disable button while loading
+            >
+              {loading ? (
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"
+                  ></path>
+                </svg>
+              ) : (
+                "Create User"
+              )}
             </button>
           </form>
         </div>
       </div>
+
+      <CustomToast
+        show={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
+        body={toast.body}
+        status={toast.status}
+      />
     </div>
   );
 };

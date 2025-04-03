@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 
 export default function AddCartModal({ onClose, onAdd }) {
   const [formData, setFormData] = useState({
-    trolley_code: "",
+    trolleyCode: "",
     store: "",
     status: "available",
   });
@@ -19,8 +19,7 @@ export default function AddCartModal({ onClose, onAdd }) {
     // Create new trolley object based on the model structure
     const newTrolley = {
       _id: Math.random().toString(36).substr(2, 9),
-      trolley_code: formData.trolley_code,
-      store: formData.store,
+      trolleyCode: formData.trolleyCode,
       store_name: "Store " + formData.store.slice(-4), // Just for display purposes
       status: formData.status,
       current_user: null,
@@ -51,7 +50,7 @@ export default function AddCartModal({ onClose, onAdd }) {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6">
+        <form onSubmit={handleSubmit} className="p-6 text-black">
           <div className="space-y-4">
             <div>
               <label
@@ -62,32 +61,13 @@ export default function AddCartModal({ onClose, onAdd }) {
               </label>
               <input
                 type="text"
-                id="trolley_code"
-                name="trolley_code"
+                id="trolleyCode"
+                name="trolleyCode"
                 required
-                value={formData.trolley_code}
+                value={formData.trolleyCode}
                 onChange={handleChange}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="TR-12345"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="store"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Store ID
-              </label>
-              <input
-                type="text"
-                id="store"
-                name="store"
-                required
-                value={formData.store}
-                onChange={handleChange}
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="ST-12345"
               />
             </div>
 

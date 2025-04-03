@@ -94,8 +94,8 @@ function HomePage() {
               text: "Overview",
               onClick: () => handleMenuClick("Overview"),
             },
-            { icon: <FileText size={18} />, text: "Sales Summary" },
-            { icon: <FileText size={18} />, text: "Store Performance" },
+            // { icon: <FileText size={18} />, text: "Sales Summary" },
+            // { icon: <FileText size={18} />, text: "Store Performance" },
           ]}
         />
 
@@ -103,28 +103,28 @@ function HomePage() {
           icon={<ShoppingCart size={20} />}
           text="Sales & Transactions"
           subItems={[
-            { icon: <CreditCard size={18} />, text: "Create Sale" },
-            { icon: <FileText size={18} />, text: "Sales History" },
-            { icon: <FileText size={18} />, text: "Returns & Refunds" },
-            { icon: <FileText size={18} />, text: "Bills & Receipts" },
+            // { icon: <CreditCard size={18} />, text: "Create Sale" },
+            // { icon: <FileText size={18} />, text: "Sales History" },
+            // { icon: <FileText size={18} />, text: "Returns & Refunds" },
+            // { icon: <FileText size={18} />, text: "Bills & Receipts" },
             { icon: <FileText size={18} />, text: "Create Bill" },
             {
               icon: <FileText size={18} />,
               text: "Bill List",
               onClick: () => handleMenuClick("Add Bill"),
             },
-            { icon: <FileText size={18} />, text: "Receipts" },
-            { icon: <FileText size={18} />, text: "Transactions" },
-            {
-              icon: <FileText size={18} />,
-              text: "Orders Management",
-              onClick: () => handleMenuClick("Orders Management"),
-            },
-            {
-              icon: <FileText size={18} />,
-              text: "Order Details",
-              onClick: () => handleMenuClick("Order Details"),
-            },
+            // { icon: <FileText size={18} />, text: "Receipts" },
+            // { icon: <FileText size={18} />, text: "Transactions" },
+            // {
+            //   icon: <FileText size={18} />,
+            //   text: "Orders Management",
+            //   onClick: () => handleMenuClick("Orders Management"),
+            // },
+            // {
+            //   icon: <FileText size={18} />,
+            //   text: "Order Details",
+            //   onClick: () => handleMenuClick("Order Details"),
+            // },
           ]}
         />
         <SidebarDropDown
@@ -141,16 +141,16 @@ function HomePage() {
               text: "Customer List",
               onClick: () => handleMenuClick("Customer List"),
             },
-            {
-              icon: <FileText size={18} />,
-              text: "Customer Transactions",
-              onClick: () => handleMenuClick("Customer Transactions"),
-            },
-            {
-              icon: <FileText size={18} />,
-              text: "Loyalty Program",
-              onClick: () => handleMenuClick("Loyalty Program"),
-            },
+            // {
+            //   icon: <FileText size={18} />,
+            //   text: "Customer Transactions",
+            //   onClick: () => handleMenuClick("Customer Transactions"),
+            // },
+            // {
+            //   icon: <FileText size={18} />,
+            //   text: "Loyalty Program",
+            //   onClick: () => handleMenuClick("Loyalty Program"),
+            // },
           ]}
         />
 
@@ -173,14 +173,14 @@ function HomePage() {
               text: "Categories",
               onClick: () => handleMenuClick("Add Category"),
             },
-            { icon: <FileText size={18} />, text: "Promotions & Discounts" },
-            { icon: <FileText size={18} />, text: "Stock & Inventory" },
+            // { icon: <FileText size={18} />, text: "Promotions & Discounts" },
+            // { icon: <FileText size={18} />, text: "Stock & Inventory" },
             { icon: <FileText size={18} />, text: "Stock List" },
-            { icon: <FileText size={18} />, text: "Adjust Inventory" },
+            // { icon: <FileText size={18} />, text: "Adjust Inventory" },
           ]}
         />
 
-        <SidebarDropDown
+        {/* <SidebarDropDown
           icon={<Truck size={20} />}
           text="Suppliers & Purchases"
           subItems={[
@@ -192,7 +192,7 @@ function HomePage() {
             { icon: <FileText size={18} />, text: "Supplier List" },
             { icon: <FileText size={18} />, text: "Supplier Transactions" },
           ]}
-        />
+        /> */}
 
         <SidebarDropDown
           icon={<Briefcase size={20} />}
@@ -200,12 +200,12 @@ function HomePage() {
           subItems={[
             { icon: <FileText size={18} />, text: "Add Employee" },
             { icon: <FileText size={18} />, text: "Employee List" },
-            { icon: <FileText size={18} />, text: "Salesmen" },
-            { icon: <FileText size={18} />, text: "Shifts & Attendance" },
+            // { icon: <FileText size={18} />, text: "Salesmen" },
+            // { icon: <FileText size={18} />, text: "Shifts & Attendance" },
           ]}
         />
 
-        <SidebarDropDown
+        {/* <SidebarDropDown
           icon={<DollarSign size={20} />}
           text="Expenses & Taxes"
           subItems={[
@@ -225,15 +225,15 @@ function HomePage() {
             { icon: <FileText size={18} />, text: "Tax Reports" },
             { icon: <FileText size={18} />, text: "Audit Logs" },
           ]}
-        />
+        /> */}
 
         <SidebarDropDown
           icon={<Settings size={20} />}
           text="Settings & Store Management"
           subItems={[
             { icon: <FileText size={18} />, text: "Store Information" },
-            { icon: <FileText size={18} />, text: "Roles & Permissions" },
-            { icon: <FileText size={18} />, text: "Notification Settings" },
+            // { icon: <FileText size={18} />, text: "Roles & Permissions" },
+            // { icon: <FileText size={18} />, text: "Notification Settings" },
           ]}
         />
 

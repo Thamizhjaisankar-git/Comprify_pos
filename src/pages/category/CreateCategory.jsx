@@ -1,274 +1,7 @@
-// import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//   addCategory,
-//   addSubCategory,
-//   addProduct,
-//   deleteProduct,
-//   deleteCategory,
-//   deleteSubCategory,
-//   setSelectedCategory,
-//   setSelectedSubCategory,
-// } from "../../redux/categorySlice";
-
-// const CategoriesPage = () => {
-//   const dispatch = useDispatch();
-//   const { categories, selectedCategory, selectedSubCategory } = useSelector(
-//     (state) => state.category
-//   );
-
-//   const [newCategory, setNewCategory] = useState("");
-//   const [newSubCategory, setNewSubCategory] = useState("");
-//   const [productName, setProductName] = useState("");
-//   const [productPrice, setProductPrice] = useState("");
-//   const [productQuantity, setProductQuantity] = useState("");
-
-//   const handleAddCategory = () => {
-//     if (!newCategory.trim()) return;
-//     dispatch(addCategory(newCategory));
-//     setNewCategory("");
-//   };
-
-//   const handleAddSubCategory = () => {
-//     if (!selectedCategory || !newSubCategory.trim()) return;
-//     dispatch(
-//       addSubCategory({
-//         categoryName: selectedCategory,
-//         subCategoryName: newSubCategory,
-//       })
-//     );
-//     setNewSubCategory("");
-//   };
-
-//   const handleAddProduct = () => {
-//     if (
-//       !selectedCategory ||
-//       !selectedSubCategory ||
-//       !productName ||
-//       !productPrice ||
-//       !productQuantity
-//     )
-//       return;
-
-//     const newProduct = {
-//       id: Date.now(),
-//       name: productName,
-//       price: parseFloat(productPrice),
-//       quantity: parseInt(productQuantity),
-//     };
-
-//     dispatch(
-//       addProduct({
-//         categoryName: selectedCategory,
-//         subCategoryName: selectedSubCategory,
-//         product: newProduct,
-//       })
-//     );
-
-//     setProductName("");
-//     setProductPrice("");
-//     setProductQuantity("");
-//   };
-
-//   const handleDeleteCategory = (categoryName) => {
-//     dispatch(deleteCategory(categoryName));
-//   };
-
-//   const handleDeleteSubCategory = (subCategoryName) => {
-//     dispatch(
-//       deleteSubCategory({ categoryName: selectedCategory, subCategoryName })
-//     );
-//   };
-
-//   const handleDeleteProduct = (productId) => {
-//     dispatch(
-//       deleteProduct({
-//         categoryName: selectedCategory,
-//         subCategoryName: selectedSubCategory,
-//         productId,
-//       })
-//     );
-//   };
-
-//   return (
-//     <div className="p-8 min-h-screen bg-gray-900 text-white">
-//       <h1 className="text-3xl font-bold mb-6">Category Management</h1>
-
-//       {/* Add Category */}
-//       <div className="mb-6">
-//         <input
-//           type="text"
-//           value={newCategory}
-//           onChange={(e) => setNewCategory(e.target.value)}
-//           className="p-2 w-1/2 bg-gray-800 rounded"
-//           placeholder="Enter new category"
-//         />
-//         <button
-//           onClick={handleAddCategory}
-//           className="bg-blue-600 p-2 ml-4 rounded"
-//         >
-//           Add Category
-//         </button>
-//       </div>
-
-//       {/* Select Category */}
-//       <div className="mb-6">
-//         <select
-//           value={selectedCategory}
-//           onChange={(e) => dispatch(setSelectedCategory(e.target.value))}
-//           className="p-2 w-1/4 bg-gray-800 rounded"
-//         >
-//           <option value="" disabled>
-//             Select Category
-//           </option>
-//           {categories.map((category) => (
-//             <option key={category.name} value={category.name}>
-//               {category.name}
-//             </option>
-//           ))}
-//         </select>
-//         {selectedCategory && (
-//           <button
-//             onClick={() => handleDeleteCategory(selectedCategory)}
-//             className="bg-red-600 p-2 ml-4 rounded"
-//           >
-//             Delete Category
-//           </button>
-//         )}
-//       </div>
-
-//       {/* Add Subcategory */}
-//       {selectedCategory && (
-//         <div className="mb-6">
-//           <input
-//             type="text"
-//             value={newSubCategory}
-//             onChange={(e) => setNewSubCategory(e.target.value)}
-//             className="p-2 w-1/2 bg-gray-800 rounded"
-//             placeholder="Enter new subcategory"
-//           />
-//           <button
-//             onClick={handleAddSubCategory}
-//             className="bg-purple-600 p-2 ml-4 rounded"
-//           >
-//             Add Subcategory
-//           </button>
-//         </div>
-//       )}
-
-//       {/* Select Subcategory */}
-//       {selectedCategory && (
-//         <div className="mb-6">
-//           <select
-//             value={selectedSubCategory}
-//             onChange={(e) => dispatch(setSelectedSubCategory(e.target.value))}
-//             className="p-2 w-1/4 bg-gray-800 rounded"
-//           >
-//             <option value="" disabled>
-//               Select Subcategory
-//             </option>
-//             {categories
-//               .find((c) => c.name === selectedCategory)
-//               ?.subcategories?.map((sc) => (
-//                 <option key={sc.name} value={sc.name}>
-//                   {sc.name}
-//                 </option>
-//               ))}
-//           </select>
-//           {selectedSubCategory && (
-//             <button
-//               onClick={() => handleDeleteSubCategory(selectedSubCategory)}
-//               className="bg-red-600 p-2 ml-4 rounded"
-//             >
-//               Delete Subcategory
-//             </button>
-//           )}
-//         </div>
-//       )}
-
-//       {/* Add Product */}
-//       {selectedCategory && selectedSubCategory && (
-//         <div className="mb-6">
-//           <input
-//             type="text"
-//             value={productName}
-//             onChange={(e) => setProductName(e.target.value)}
-//             placeholder="Product Name"
-//             className="p-2 bg-gray-800 rounded mr-4"
-//           />
-//           <input
-//             type="number"
-//             value={productPrice}
-//             onChange={(e) => setProductPrice(e.target.value)}
-//             placeholder="Price"
-//             className="p-2 bg-gray-800 rounded mr-4"
-//           />
-//           <input
-//             type="number"
-//             value={productQuantity}
-//             onChange={(e) => setProductQuantity(e.target.value)}
-//             placeholder="Quantity"
-//             className="p-2 bg-gray-800 rounded"
-//           />
-//           <button
-//             onClick={handleAddProduct}
-//             className="bg-green-600 p-2 ml-4 rounded"
-//           >
-//             Add Product
-//           </button>
-//         </div>
-//       )}
-
-//       {/* Show Product List */}
-//       {selectedCategory && selectedSubCategory && (
-//         <div className="mt-6">
-//           <h2 className="text-2xl font-bold mb-4">Product List</h2>
-//           <table className="w-full border border-gray-600 text-center">
-//             <thead>
-//               <tr className="bg-gray-700">
-//                 <th className="p-2 border border-gray-600">Name</th>
-//                 <th className="p-2 border border-gray-600">Price</th>
-//                 <th className="p-2 border border-gray-600">Quantity</th>
-//                 <th className="p-2 border border-gray-600">Actions</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {categories
-//                 .find((c) => c.name === selectedCategory)
-//                 ?.subcategories.find((sc) => sc.name === selectedSubCategory)
-//                 ?.products.map((product) => (
-//                   <tr key={product.id} className="bg-gray-800">
-//                     <td className="p-2 border border-gray-600">
-//                       {product.name}
-//                     </td>
-//                     <td className="p-2 border border-gray-600">
-//                       ${product.price}
-//                     </td>
-//                     <td className="p-2 border border-gray-600">
-//                       {product.quantity}
-//                     </td>
-//                     <td className="p-2 border border-gray-600">
-//                       <button
-//                         onClick={() => handleDeleteProduct(product.id)}
-//                         className="bg-red-600 p-2 rounded"
-//                       >
-//                         Delete
-//                       </button>
-//                     </td>
-//                   </tr>
-//                 ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CategoriesPage;
 import React, { useEffect, useState } from "react";
 import axios from "axios"; // or use fetch if you prefer
 import config from "../../config";
+import CustomToast from "../../components/globalComponent/customToast/CustomToast";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
@@ -278,6 +11,16 @@ const Categories = () => {
   const [editCategory, setEditCategory] = useState(null);
   const [isArchiving, setIsArchiving] = useState(false);
   const [archivingCategory, setArchivingCategory] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
+  const [toast, setToast] = useState({
+    show: false,
+    body: "",
+    status: "success",
+  });
+
+  const showToast = (message, status) => {
+    setToast({ show: true, body: message, status });
+  };
 
   // Fetch categories on page load
   // Get the token from localStorage or wherever it's stored
@@ -309,18 +52,64 @@ const Categories = () => {
     fetchCategories();
   }, []);
 
+  // Fetch category suggestions
+  const fetchSuggestions = async (query) => {
+    if (!query.trim()) {
+      setSuggestions([]);
+      return;
+    }
+    try {
+      const response = await axiosInstance.get(
+        `/pos/category/search?name=${query}`
+      );
+      setSuggestions(response.data.categories);
+    } catch (error) {
+      console.error("Error fetching suggestions", error);
+    }
+  };
+
+  // Handle input change
+  const handleInputChange = (e) => {
+    setNewCategory(e.target.value);
+    fetchSuggestions(e.target.value);
+  };
+
+  // Select a suggested category
+  const selectSuggestion = (categoryName) => {
+    setNewCategory(categoryName);
+    setSuggestions([]);
+  };
+
   // Add new category
   const handleAddCategory = async () => {
     if (!newCategory.trim()) return;
+
+    // Check if category already exists
+    const isExisting = categories.some(
+      (category) =>
+        category.category_name.toLowerCase() === newCategory.toLowerCase()
+    );
+
+    if (isExisting) {
+      setNewCategory("");
+      showToast("Category already exists!", "error");
+      return;
+    }
+
     setLoading(true);
     try {
       await axiosInstance.post("/pos/category", { category_name: newCategory }); // Adjust URL if needed
       setNewCategory("");
+
       // Refetch categories after adding
       const response = await axiosInstance.get("/pos/category/store"); // Adjust URL if needed
-      setCategories(response.data);
+      console.log(response.data);
+      setCategories(response.data.categories);
+
+      showToast("Category added successfully!", "success");
     } catch (error) {
       console.error("Error adding category", error);
+      showToast("Internal server error! Please try again later...", "error");
     } finally {
       setLoading(false);
     }
@@ -381,17 +170,35 @@ const Categories = () => {
       <h1 className="text-3xl font-bold mb-6">Category Management</h1>
 
       {/* Add Category */}
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb-6 relative w-1/3">
         <input
           type="text"
           value={newCategory}
-          onChange={(e) => setNewCategory(e.target.value)}
-          className="p-2 w-1/3 bg-gray-800 rounded"
+          onChange={handleInputChange}
+          className="p-2 w-full bg-gray-800 rounded"
           placeholder="Enter new category"
         />
-        <button onClick={handleAddCategory} className="bg-blue-600 p-2 rounded">
+        <button
+          onClick={handleAddCategory}
+          className="bg-blue-600 p-2 rounded mt-2"
+        >
           Add Category
         </button>
+
+        {/* Suggestions Dropdown */}
+        {suggestions.length > 0 && (
+          <ul className="absolute top-12 left-0 w-full bg-gray-700 rounded shadow-lg">
+            {suggestions.map((suggestion) => (
+              <li
+                key={suggestion._id}
+                onClick={() => selectSuggestion(suggestion.category_name)}
+                className="p-2 cursor-pointer hover:bg-gray-600"
+              >
+                {suggestion.category_name}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* Loader */}
@@ -495,6 +302,13 @@ const Categories = () => {
           </div>
         </div>
       )}
+
+      <CustomToast
+        show={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
+        body={toast.body}
+        status={toast.status}
+      />
     </div>
   );
 };

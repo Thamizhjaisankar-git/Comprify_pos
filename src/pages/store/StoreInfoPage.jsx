@@ -109,9 +109,31 @@ const StoreInfoPage = () => {
     }));
   };
 
+  const [formErrors, setFormErrors] = useState({});
+
   const handleSubmit = async () => {
-    if (!storeInfo.location.latitude || !storeInfo.location.longitude) {
-      alert("Please enter valid latitude and longitude for store location.");
+    let errors = {};
+
+    if (!storeInfo.store_name.trim())
+      errors.store_name = "Store name is required.";
+    if (!storeInfo.phone_number.trim())
+      errors.phone_number = "Phone number is required.";
+    if (!storeInfo.address.street.trim()) errors.street = "Street is required.";
+    if (!storeInfo.address.city.trim()) errors.city = "City is required.";
+    if (!storeInfo.address.state.trim()) errors.state = "State is required.";
+    if (!storeInfo.address.zip_code.trim())
+      errors.zip_code = "Zip Code is required.";
+    if (!storeInfo.address.country.trim())
+      errors.country = "Country is required.";
+    if (
+      !storeInfo.location.latitude.trim() ||
+      !storeInfo.location.longitude.trim()
+    ) {
+      errors.location = "Latitude and Longitude are required.";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
       return;
     }
 
@@ -204,6 +226,9 @@ const StoreInfoPage = () => {
                 onChange={handleChange}
                 className="input-field1"
               />
+              {formErrors.store_name && (
+                <p className="text-red-500">{formErrors.store_name}</p>
+              )}
               <div>
                 <input
                   type="text"
@@ -213,6 +238,9 @@ const StoreInfoPage = () => {
                   onChange={handleChange}
                   className="input-field1"
                 />
+                {formErrors.phone_number && (
+                  <p className="text-red-500">{formErrors.phone_number}</p>
+                )}
               </div>
 
               {/* Logo URL Input */}
@@ -302,6 +330,9 @@ const StoreInfoPage = () => {
                   onChange={handleChange}
                   className="input-field1"
                 />
+                {formErrors.street && (
+                  <p className="text-red-500 col-span-2">{formErrors.street}</p>
+                )}
                 <input
                   type="text"
                   name="address.city"
@@ -310,6 +341,9 @@ const StoreInfoPage = () => {
                   onChange={handleChange}
                   className="input-field1"
                 />
+                {formErrors.city && (
+                  <p className="text-red-500 col-span-2">{formErrors.city}</p>
+                )}
                 <input
                   type="text"
                   name="address.state"
@@ -318,14 +352,9 @@ const StoreInfoPage = () => {
                   onChange={handleChange}
                   className="input-field1"
                 />
-                <input
-                  type="text"
-                  name="address.zip_code"
-                  placeholder="Zip Code"
-                  value={storeInfo.address.zip_code}
-                  onChange={handleChange}
-                  className="input-field1"
-                />
+                {formErrors.state && (
+                  <p className="text-red-500 col-span-2">{formErrors.state}</p>
+                )}
                 <input
                   type="text"
                   name="address.country"
@@ -334,6 +363,24 @@ const StoreInfoPage = () => {
                   onChange={handleChange}
                   className="col-span-2 input-field1"
                 />
+                {formErrors.country && (
+                  <p className="text-red-500 col-span-2">
+                    {formErrors.country}
+                  </p>
+                )}
+                <input
+                  type="text"
+                  name="address.zip_code"
+                  placeholder="Zip Code"
+                  value={storeInfo.address.zip_code}
+                  onChange={handleChange}
+                  className="input-field1"
+                />
+                {formErrors.zip_code && (
+                  <p className="text-red-500 col-span-2">
+                    {formErrors.zip_code}
+                  </p>
+                )}
               </div>
 
               <h2 className="text-xl font-semibold mt-6">
@@ -357,6 +404,9 @@ const StoreInfoPage = () => {
                   className="input-field1"
                 />
               </div>
+              {formErrors.location && (
+                <p className="text-red-500">{formErrors.location}</p>
+              )}
 
               {storeInfo && storeInfo.location && (
                 <div className="mt-4 text-gray-400 text-sm">

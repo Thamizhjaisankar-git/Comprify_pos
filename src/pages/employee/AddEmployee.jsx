@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addEmployee } from "../../redux/employeeSlice"; // Redux action
 import config from "../../config"; // Import backend URL config
 import axios from "axios";
+import CustomToast from "../../components/globalComponent/customToast/CustomToast";
 
 const AddEmployee = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,15 @@ const AddEmployee = () => {
     role: "",
     status: "",
   });
+  const [toast, setToast] = useState({
+    show: false,
+    body: "",
+    status: "success",
+  });
+
+  const showToast = (message, status) => {
+    setToast({ show: true, body: message, status });
+  };
 
   const handleChange = (e) => {
     setEmployee({ ...employee, [e.target.name]: e.target.value });
@@ -48,11 +58,13 @@ const AddEmployee = () => {
         role: "",
         status: "",
       });
+      showToast("Employee created successfully!", "success");
     } catch (error) {
       console.error(
         "Error adding employee:",
         error.response?.data || error.message
       );
+      showToast("Internal server error! please try again later...", "error");
     }
   };
 
@@ -156,6 +168,13 @@ const AddEmployee = () => {
           </form>
         </div>
       </div>
+
+      <CustomToast
+        show={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
+        body={toast.body}
+        status={toast.status}
+      />
     </div>
   );
 };
