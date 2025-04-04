@@ -9,11 +9,37 @@ import {
 } from "../../../sample-data";
 import axios from "axios";
 import config from "../../config";
+import QRCode from "react-qr-code";
 
 export default function Dashboard() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedTrolley, setSelectedTrolley] = useState(null);
   const [trolleys, setTrolleys] = useState([]);
+
+  const downloadQRCode = (trolleyId, trolleyCode) => {
+    const qrElement = document.getElementById(`qr-${trolleyId}`);
+    if (!qrElement) return;
+
+    const svgData = new XMLSerializer().serializeToString(qrElement);
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+
+    img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
+    img.onload = () => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      const pngUrl = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = pngUrl;
+      link.download = `${trolleyCode}.png`;
+      link.click();
+    };
+
+    img.onerror = (err) => console.error("QR Code conversion error:", err);
+  };
 
   const handleAddTrolley = async (newTrolley) => {
     const token = localStorage.getItem("token");
@@ -31,10 +57,10 @@ export default function Dashboard() {
         }
       );
       console.log("Trolley Added:", response.data);
+      setTrolleys([...trolleys, response.data.trolley]);
     } catch (error) {
       console.log(error);
     }
-    setTrolleys([...trolleys, newTrolley]);
     setIsAddModalOpen(false);
   };
 
@@ -130,10 +156,9 @@ export default function Dashboard() {
                         <h3 className="text-lg font-medium text-gray-900">
                           Trolley #{trolley.trolley_code}
                         </h3>
-                        {/* <p className="text-sm text-gray-500">
-                          Store: {trolley.store_name}
-                        </p> */}
                       </div>
+                      {/* QR Code Rendered with an ID */}
+
                       <span
                         className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusColor(
                           trolley.status
@@ -141,6 +166,13 @@ export default function Dashboard() {
                       >
                         {trolley.status}
                       </span>
+                    </div>
+                    <div className="mt-4">
+                      <QRCode
+                        id={`qr-${trolley._id}`}
+                        value={`${trolley._id}/${trolley.trolley_code}`}
+                        size={256}
+                      />
                     </div>
                     <div className="mt-4 flex items-center text-sm text-gray-500">
                       <ShoppingCart className="flex-shrink-0 mr-1.5 h-4 w-4 text-gray-400" />
@@ -154,10 +186,19 @@ export default function Dashboard() {
                       </div>
                     )}
                   </div>
-                  <div className="bg-gray-50 px-6 py-3 border-t border-gray-200">
+                  <div className="bg-gray-50 px-6 py-3 border-t border-gray-200 flex justify-between items-center">
                     <div className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
                       View details →
                     </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        downloadQRCode(trolley._id, trolley.trolley_code);
+                      }}
+                      className="text-sm text-blue-600 hover:underline"
+                    >
+                      Download QR Code
+                    </button>
                   </div>
                 </div>
               ))}
