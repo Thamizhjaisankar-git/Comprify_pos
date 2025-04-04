@@ -12,6 +12,8 @@ import config from "../config";
 export default function CartDetails({ trolley, history }) {
   const [activeTab, setActiveTab] = useState("items");
   const [cart, setCart] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedAuditItems, setEditedAuditItems] = useState([]);
 
   const getCart = async () => {
     if (trolley.status === "in-use") {
@@ -57,7 +59,7 @@ export default function CartDetails({ trolley, history }) {
       case "completed":
         return (
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
-            Completed
+            Automated Verification done - Payment Pending
           </span>
         );
       default:
@@ -169,6 +171,137 @@ export default function CartDetails({ trolley, history }) {
                       </div>
                     </div>
                   </div>
+                )}
+
+                {cart?.auditId && cart?.auditId.items?.length > 0 && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+                    <div className="flex">
+                      <AlertTriangle className="h-5 w-5 text-red-400" />
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-red-800">
+                          Manual Verification Required
+                        </h3>
+                        <p className="mt-1 text-sm text-red-700">
+                          Some products have been added after automated
+                          verification.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {cart?.auditId && cart?.auditId.items?.length > 0 && (
+                  <>
+                    <div className="flex justify-between items-center">
+                      <h4 className="font-medium text-gray-700">
+                        Audit Items for Verification
+                      </h4>
+                      {!isEditing ? (
+                        <button
+                          onClick={() => {
+                            setIsEditing(true);
+                            setEditedAuditItems(cart.auditId.items); // Load items for editing
+                          }}
+                          className="text-sm text-blue-600 hover:underline"
+                        >
+                          Edit
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => setIsEditing(false)}
+                          className="text-sm text-red-600 hover:underline"
+                        >
+                          Cancel
+                        </button>
+                      )}
+                    </div>
+                    {isEditing
+                      ? editedAuditItems.map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex justify-between items-center p-3 bg-white rounded-md shadow-sm"
+                          >
+                            <div className="flex items-center">
+                              <div className="h-10 w-10 flex-shrink-0 bg-gray-200 rounded-md flex items-center justify-center">
+                                <Package className="h-6 w-6 text-gray-500" />
+                              </div>
+                              <div className="ml-4">
+                                <h5 className="text-sm font-medium text-gray-900">
+                                  {item.product.product_name}
+                                </h5>
+                                <input
+                                  type="number"
+                                  value={item.quantity}
+                                  onChange={(e) => {
+                                    const updatedItems = [...editedAuditItems];
+                                    updatedItems[index].quantity = Number(
+                                      e.target.value
+                                    );
+                                    setEditedAuditItems(updatedItems);
+                                  }}
+                                  className="w-16 text-sm border rounded-md px-2 py-1"
+                                />
+                              </div>
+                            </div>
+                            <button
+                              onClick={() => {
+                                setEditedAuditItems(
+                                  editedAuditItems.filter((_, i) => i !== index)
+                                );
+                              }}
+                              className="text-red-600 hover:text-red-800 text-sm"
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        ))
+                      : cart.auditId.items.map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex justify-between p-3 bg-white rounded-md shadow-sm"
+                          >
+                            <div className="flex items-center">
+                              <div className="h-10 w-10 flex-shrink-0 bg-gray-200 rounded-md flex items-center justify-center">
+                                <Package className="h-6 w-6 text-gray-500" />
+                              </div>
+                              <div className="ml-4">
+                                <h5 className="text-sm font-medium text-gray-900">
+                                  {item.product.product_name}
+                                </h5>
+                                <p className="text-xs text-gray-500">
+                                  Quantity: x{item.quantity}
+                                </p>
+                              </div>
+                            </div>
+                            <span className="text-sm font-medium text-gray-900">
+                              ₹
+                              {item.product.pricing[0].selling_price.toFixed(2)}
+                            </span>
+                          </div>
+                        ))}
+                    {isEditing && (
+                      <button
+                        onClick={async () => {
+                          try {
+                            const token = localStorage.getItem("token");
+                            console.log(editedAuditItems, cart.auditId._id);
+                            await axios.post(
+                              `${config.serverApi}/pos/smart-cart/audit-sync/${cart.auditId._id}`,
+                              { products: editedAuditItems },
+                              { headers: { Authorization: `Bearer ${token}` } }
+                            );
+                            setIsEditing(false);
+                            getCart(); // Refresh cart details
+                          } catch (error) {
+                            console.error("Error syncing audit data:", error);
+                          }
+                        }}
+                        className="mt-4 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+                      >
+                        Sync Changes
+                      </button>
+                    )}
+                  </>
                 )}
 
                 <div className="bg-gray-50 rounded-lg p-4 mb-6">
