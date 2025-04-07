@@ -8,12 +8,27 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import config from "../config";
+import { useSocket, useSocketListener } from "../context/socketContext";
+import CustomToast from "./globalComponent/customToast/CustomToast";
+import { Check, X, Info } from "lucide-react";
 
 export default function CartDetails({ trolley, history }) {
   const [activeTab, setActiveTab] = useState("items");
   const [cart, setCart] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editedAuditItems, setEditedAuditItems] = useState([]);
+  const [toast, setToast] = useState({
+    show: false,
+    body: "",
+    status: "success",
+  });
+
+  const showToast = (message, status) => {
+    setToast({ show: true, body: message, status });
+    setTimeout(() => {
+      setToast((prev) => ({ ...prev, show: false }));
+    }, 3000);
+  };
 
   const getCart = async () => {
     if (trolley.status === "in-use") {
@@ -41,6 +56,103 @@ export default function CartDetails({ trolley, history }) {
     getCart();
     console.log(history);
   }, []);
+
+  useSocketListener("fraud_alert", (data) => {
+    console.log("new fraud alert have come:", data);
+    if (cart._id === data.cartId) {
+      showToast("Malicious activity detected! Kindly review it immediately!");
+    }
+  });
+
+  useSocketListener("purchase-complete", (data) => {
+    if (cart._id === data.cartId) {
+      showToast(
+        `Purchase complete on trolley with code: ${data.trolley_code}. Refresh to see changes!`,
+        "success"
+      );
+    }
+  });
+
+  useSocketListener("fraud_update", (data) => {
+    if (cart._id === data.cartId && cart.auditId._id === data.auditId) {
+      console.log("fraud products updated:", data);
+      showToast(
+        `Item added after verification: ${data.product.product_name}!!!!!!`,
+        "error"
+      );
+
+      setCart((prevCart) => {
+        const updatedAuditItems = [...prevCart.auditId.items];
+        const incomingProduct = data.product;
+
+        const existingIndex = updatedAuditItems.findIndex(
+          (item) => item.product._id === incomingProduct._id
+        );
+
+        if (existingIndex !== -1) {
+          // 🔄 Product exists → update quantity
+          updatedAuditItems[existingIndex] = {
+            ...updatedAuditItems[existingIndex],
+            quantity: data.quantity,
+          };
+        } else {
+          // ➕ Product doesn't exist → push new item
+          updatedAuditItems.push({
+            added_at: data.added_at,
+            quantity: data.quantity,
+            product: incomingProduct,
+          });
+        }
+
+        return {
+          ...prevCart,
+          auditId: {
+            ...prevCart.auditId,
+            items: updatedAuditItems,
+          },
+        };
+      });
+    }
+  });
+
+  useSocketListener("cart_update", (data) => {
+    if (cart._id === data.cartId) {
+      console.log("cart is updated:", data);
+      showToast(
+        `New item added to cart: ${data.product.product_name}`,
+        "success"
+      );
+
+      setCart((prevCart) => {
+        const updatedItems = [...prevCart.items];
+        const incomingProduct = data.product;
+
+        const existingIndex = updatedItems.findIndex(
+          (item) => item.product._id === incomingProduct._id
+        );
+
+        if (existingIndex !== -1) {
+          // 🔄 Product exists → update quantity
+          updatedItems[existingIndex] = {
+            ...updatedItems[existingIndex],
+            quantity: data.quantity,
+          };
+        } else {
+          // ➕ Product doesn't exist → push new item
+          updatedItems.push({
+            added_at: data.added_at,
+            quantity: data.quantity,
+            product: incomingProduct,
+          });
+        }
+
+        return {
+          ...prevCart,
+          items: updatedItems,
+        };
+      });
+    }
+  });
 
   const getStatusBadge = (status) => {
     switch (status) {
@@ -485,6 +597,38 @@ export default function CartDetails({ trolley, history }) {
           </div>
         )}
       </div>
+
+      {toast.show && (
+        <div className="fixed top-4 right-4 z-[1000]">
+          <div
+            className={`flex items-start p-4 rounded-lg border shadow-lg max-w-md ${
+              toast.status === "success"
+                ? "bg-green-100 border-green-300 text-green-800"
+                : toast.status === "error"
+                ? "bg-red-100 border-red-300 text-red-800"
+                : "bg-blue-100 border-blue-300 text-blue-800"
+            }`}
+            style={{ animation: "slideIn 0.3s forwards" }}
+          >
+            <div className="mr-3 mt-0.5">
+              {toast.status === "success" ? (
+                <Check className="w-5 h-5" />
+              ) : (
+                <X className="w-5 h-5" />
+              )}
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-medium">{toast.body}</p>
+            </div>
+            <button
+              onClick={() => setToast({ ...toast, show: false })}
+              className="ml-4 text-gray-500 hover:text-gray-700"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

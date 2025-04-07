@@ -10,13 +10,48 @@ import {
 import axios from "axios";
 import config from "../../config";
 import QRCode from "react-qr-code";
+import { useSocketListener } from "../../context/socketContext";
+import CustomToast from "../../components/globalComponent/customToast/CustomToast";
 
 export default function Dashboard() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedTrolley, setSelectedTrolley] = useState(null);
   const [trolleys, setTrolleys] = useState([]);
+  const [storeData, setStoreData] = useState(() => {
+    const stored = localStorage.getItem("storeData");
+    console.log("-----------------", stored);
+    return stored ? JSON.parse(stored) : {};
+  });
+  const [toast, setToast] = useState({
+    show: false,
+    body: "",
+    status: "success",
+  });
 
-  const downloadQRCode = (trolleyId, trolleyCode) => {
+  const showToast = (message, status) => {
+    setToast({ show: true, body: message, status });
+  };
+
+  useSocketListener("trolley-connected", (data) => {
+    setTrolleys((prevTrolleys) => {
+      return prevTrolleys.map((trolley) => {
+        if (trolley.trolley_code === data.trolley_code) {
+          return {
+            ...trolley,
+            status: "in-use", // ✅ update status
+          };
+        }
+        return trolley;
+      });
+    });
+
+    showToast(
+      `A new user (${data.userId}) is connected to trolley with code: ${data.trolley_code}`,
+      "success"
+    );
+  });
+
+  const downloadQRCode = (storeId, trolleyId, trolleyCode) => {
     const qrElement = document.getElementById(`qr-${trolleyId}`);
     if (!qrElement) return;
 
@@ -170,7 +205,7 @@ export default function Dashboard() {
                     <div className="mt-4">
                       <QRCode
                         id={`qr-${trolley._id}`}
-                        value={`${trolley._id}/${trolley.trolley_code}`}
+                        value={`${storeData.store_id}/${trolley._id}/${trolley.trolley_code}`}
                         size={256}
                       />
                     </div>
@@ -193,7 +228,11 @@ export default function Dashboard() {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        downloadQRCode(trolley._id, trolley.trolley_code);
+                        downloadQRCode(
+                          storeData.store_id,
+                          trolley._id,
+                          trolley.trolley_code
+                        );
                       }}
                       className="text-sm text-blue-600 hover:underline"
                     >
@@ -213,6 +252,13 @@ export default function Dashboard() {
           onAdd={handleAddTrolley}
         />
       )}
+
+      <CustomToast
+        show={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
+        body={toast.body}
+        status={toast.status}
+      />
     </div>
   );
 }

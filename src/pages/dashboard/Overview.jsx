@@ -1,5 +1,13 @@
-import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import React, { use, useEffect, useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import { useSocket, useSocketListener } from "../../context/socketContext.jsx";
 
 const Overview = () => {
   const stockData = [
@@ -15,9 +23,24 @@ const Overview = () => {
   ];
 
   const recentTransactions = [
-    { orderId: "#1023", customer: "John Doe", amount: "$120", status: "Completed" },
-    { orderId: "#1024", customer: "Jane Smith", amount: "$90", status: "Pending" },
-    { orderId: "#1025", customer: "Mike Lee", amount: "$250", status: "Completed" },
+    {
+      orderId: "#1023",
+      customer: "John Doe",
+      amount: "$120",
+      status: "Completed",
+    },
+    {
+      orderId: "#1024",
+      customer: "Jane Smith",
+      amount: "$90",
+      status: "Pending",
+    },
+    {
+      orderId: "#1025",
+      customer: "Mike Lee",
+      amount: "$250",
+      status: "Completed",
+    },
   ];
 
   const lowStockItems = [
@@ -26,12 +49,25 @@ const Overview = () => {
     { product: "T-Shirts", stock: 12 },
   ];
 
+  const [num, setNum] = useState(0);
+  const { connectionStatus } = useSocket();
+
+  useSocketListener(
+    "add",
+    (update) => {
+      console.log(connectionStatus);
+      console.log("------------", update);
+      setNum((prev) => prev + update.num);
+    },
+    [num]
+  );
+
   return (
     <div className="h-screen w-full flex flex-col p-6 text-white ">
       <div className="p-6 bg-gray-900 text-white mb-5 rounded-lg">
-        <h1 className="text-3xl font-bold">Dashboard Overview</h1>
+        <h1 className="text-3xl font-bold">Dashboard Overview {num}</h1>
       </div>
-      
+
       {/* Main Content */}
       <div className="mt-3 p-6">
         {/* Summary Cards */}
@@ -58,10 +94,15 @@ const Overview = () => {
         <div className="bg-gray-800 p-6 rounded-lg mt-6">
           <h2 className="text-xl font-bold mb-4">Stock Overview</h2>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={stockData} margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
+            <BarChart
+              data={stockData}
+              margin={{ top: 10, right: 10, left: 10, bottom: 10 }}
+            >
               <XAxis dataKey="name" stroke="#fff" />
               <YAxis stroke="#fff" />
-              <Tooltip wrapperStyle={{ backgroundColor: "#333", color: "#fff" }} />
+              <Tooltip
+                wrapperStyle={{ backgroundColor: "#333", color: "#fff" }}
+              />
               <Bar dataKey="stock" fill="#4F46E5" barSize={50} />
             </BarChart>
           </ResponsiveContainer>
@@ -108,7 +149,13 @@ const Overview = () => {
                   <td className="p-2">{order.orderId}</td>
                   <td className="p-2">{order.customer}</td>
                   <td className="p-2">{order.amount}</td>
-                  <td className={`p-2 ${order.status === "Completed" ? "text-green-500" : "text-yellow-500"}`}>
+                  <td
+                    className={`p-2 ${
+                      order.status === "Completed"
+                        ? "text-green-500"
+                        : "text-yellow-500"
+                    }`}
+                  >
                     {order.status}
                   </td>
                 </tr>
@@ -122,7 +169,9 @@ const Overview = () => {
           <h2 className="text-xl font-bold mb-4">Low Stock Alerts</h2>
           <ul>
             {lowStockItems.map((item, index) => (
-              <li key={index} className="p-2">{item.product} - Only {item.stock} left!</li>
+              <li key={index} className="p-2">
+                {item.product} - Only {item.stock} left!
+              </li>
             ))}
           </ul>
         </div>
