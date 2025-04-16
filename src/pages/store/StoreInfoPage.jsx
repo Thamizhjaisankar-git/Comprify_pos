@@ -116,8 +116,12 @@ const StoreInfoPage = () => {
 
     if (!storeInfo.store_name.trim())
       errors.store_name = "Store name is required.";
-    if (!storeInfo.phone_number.trim())
+    if (!storeInfo.phone_number.trim()) {
       errors.phone_number = "Phone number is required.";
+    } else if (!/^[1-9][0-9]{9}$/.test(storeInfo.phone_number.trim())) {
+      errors.phone_number = "Phone number must be 10 digits and not start with 0.";
+    }
+    
     if (!storeInfo.address.street.trim()) errors.street = "Street is required.";
     if (!storeInfo.address.city.trim()) errors.city = "City is required.";
     if (!storeInfo.address.state.trim()) errors.state = "State is required.";

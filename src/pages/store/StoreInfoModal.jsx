@@ -8,15 +8,29 @@ const StoreInfoModal = ({ storeInfo, onClose, handleSubmit }) => {
   // Handle changes in input fields, whether it's a regular input or nested field
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    if (name.includes("address")) {
-      const field = name.split(".")[1]; // Example: name="address.street"
+  
+    if (name === "phone_number") {
+      // Remove all non-digit characters
+      const digitsOnly = value.replace(/\D/g, "");
+  
+      // Prevent number from starting with 0
+      if (digitsOnly.length === 1 && digitsOnly[0] === "0") return;
+  
+      // Allow up to 10 digits only
+      if (digitsOnly.length <= 10) {
+        setLocalStoreInfo((prev) => ({
+          ...prev,
+          [name]: digitsOnly,
+        }));
+      }
+    } else if (name.includes("address")) {
+      const field = name.split(".")[1];
       setLocalStoreInfo((prev) => ({
         ...prev,
         address: { ...prev.address, [field]: value },
       }));
     } else if (name.includes("location")) {
-      const field = name.split(".")[1]; // For example: name="location.latitude"
+      const field = name.split(".")[1];
       setLocalStoreInfo((prev) => ({
         ...prev,
         location: { ...prev.location, [field]: value },
@@ -25,6 +39,8 @@ const StoreInfoModal = ({ storeInfo, onClose, handleSubmit }) => {
       setLocalStoreInfo((prev) => ({ ...prev, [name]: value }));
     }
   };
+  
+  
 
   // Handle adding URL to logo_url or img_urls
   const handleAddUrl = (e, field, inputValue, setInputValue) => {
@@ -55,6 +71,15 @@ const StoreInfoModal = ({ storeInfo, onClose, handleSubmit }) => {
   // Handle saving of the updated store information
   const handleSave = () => {
     console.log("Updated Store Information:", localStoreInfo);
+    const isValidPhoneNumber = (number) => {
+      return /^[1-9][0-9]{9}$/.test(number);
+    };
+    
+    if (!isValidPhoneNumber(localStoreInfo.phone_number)) {
+      alert("Phone number must be 10 digits and not start with 0.");
+      return;
+    }
+    
     handleSubmit(localStoreInfo);
     onClose();
   };

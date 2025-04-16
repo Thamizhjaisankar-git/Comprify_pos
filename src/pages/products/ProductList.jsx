@@ -129,6 +129,7 @@ const ProductList = () => {
   }, []);
 
   const handleView = (product) => {
+    console.log(product)
     setSelectedProduct(product);
     setShowViewModal(true);
   };
@@ -341,30 +342,72 @@ const ProductList = () => {
 
       {/* View Product Modal */}
       {showViewModal && selectedProduct && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>{selectedProduct.product_name}</h2>
-            <p>Product Code: {selectedProduct.product_code}</p>
-            <p>Description: {selectedProduct.description}</p>
-            <p>Category: {selectedProduct.category_id?.category_name}</p>
-            <p>Price: ₹{selectedProduct.pricing[0]?.selling_price}</p>
-            <p>Stock Quantity: {selectedProduct.stock_quantity}</p>
-            <p>Unit: {selectedProduct.unit}</p>
-            <button
-              onClick={() => setShowViewModal(false)}
-              className="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded"
-            >
-              Close
-            </button>
-          </div>
+  <div className="modal-overlay1">
+    <div className="modal-content1 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+      {/* Product Name */}
+      <h2 className="text-2xl font-bold mb-4 text-center">{selectedProduct.product_name}</h2>
+
+      {/* Image or Placeholder */}
+      <div className="w-full h-48 mb-4 rounded overflow-hidden bg-gray-100 flex items-center justify-center">
+        {selectedProduct.img_urls && selectedProduct.img_urls.length > 0 ? (
+          <img
+            src={selectedProduct.img_urls[0]}
+            alt={selectedProduct.product_name}
+            className="object-cover w-full h-full"
+          />
+        ) : (
+          <div className="text-gray-400 text-lg">No Image Available</div>
+        )}
+      </div>
+
+      {/* Table-style Info */}
+      <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="font-medium text-gray-500">Product Code:</div>
+        <div>{selectedProduct.product_code}</div>
+
+        <div className="font-medium text-gray-500">Description:</div>
+        <div>{selectedProduct.description || "N/A"}</div>
+
+        <div className="font-medium text-gray-500">Category:</div>
+        <div>{selectedProduct.category_id?.category_name}</div>
+
+        <div className="font-medium text-gray-500">Price:</div>
+        <div>₹{selectedProduct.pricing[0]?.selling_price}</div>
+
+        <div className="font-medium text-gray-500">Stock Quantity:</div>
+        <div>{selectedProduct.stock_id?.stock_quantity}</div>
+
+        <div className="font-medium text-gray-500">Unit:</div>
+        <div>{selectedProduct.unit}</div>
+
+        <div className="font-medium text-gray-500">Weight:</div>
+        <div>{selectedProduct.product_weight} g</div>
+
+        <div className="font-medium text-gray-500">Status:</div>
+        <div className={selectedProduct.status === "active" ? "text-green-600" : "text-red-600"}>
+          {selectedProduct.status}
         </div>
-      )}
+      </div>
+
+      {/* Close Button */}
+      <div className="text-center mt-6">
+        <button
+          onClick={() => setShowViewModal(false)}
+          className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-6 rounded-lg"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
       {/* Edit Product Modal */}
       {showEditModal && selectedProduct && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Edit Product</h2>
+  <div className="modal-overlay1">
+    <div className="modal-content1">
+      <h2 className="text-xl font-bold mb-4">Edit Product</h2>
             <form>
               <div className="mb-4">
                 <label className="block text-white">Product Code</label>
@@ -504,9 +547,9 @@ const ProductList = () => {
 
       {/* Archive Confirmation Modal */}
       {showArchiveModal && selectedProduct && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>Are you sure you want to archive this product?</h2>
+  <div className="modal-overlay1">
+    <div className="modal-content1">
+      <h2 className="text-xl font-bold mb-4">Archive Product</h2>
             <button
               onClick={confirmArchive}
               className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
