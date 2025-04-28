@@ -1395,7 +1395,7 @@ function LogIn() {
 
                 <div className="flex flex-col gap-2">
                   <button
-                    className="btn-modern"
+                    className="btn-modern w-full flex items-center justify-center  bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 dark:text-white"
                     onClick={verifyOtp}
                     disabled={loading}
                   >
@@ -1403,7 +1403,7 @@ function LogIn() {
                   </button>
 
                   <button
-                    className={`btn-modern-outline ${
+                    className={`btn-modern w-full flex items-center justify-center  bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 dark:text-white ${
                       isResendDisabled ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                     onClick={handleResendOtp}
