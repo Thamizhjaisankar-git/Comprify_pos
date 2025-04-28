@@ -1120,11 +1120,13 @@ function LogIn() {
     }
   };
 
-  const Loader = () => (
-    <div className="flex items-center justify-center">
-      <div className="w-6 h-6 border-t-2 border-primary border-solid rounded-full animate-spin"></div>
-    </div>
-  );
+
+    const Loader = () => (
+      <div className="flex items-center justify-center">
+        <div className="w-6 h-6 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+      </div>
+    );
+    
 
   const sendOtp = async () => {
     setError("");
@@ -1306,7 +1308,7 @@ function LogIn() {
           {error && <p className="text-destructive text-sm mt-2">{error}</p>}
 
           <button
-            className="btn-modern mt-6 w-full max-w-sm"
+            className="btn-modern mt-6 w-full max-w-sm  flex items-center justify-center  bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 dark: text-white"
             onClick={handleSignup}
             disabled={loading}
           >
@@ -1370,12 +1372,13 @@ function LogIn() {
                 {error && <p className="text-destructive text-sm">{error}</p>}
 
                 <button
-                  className="btn-modern w-full"
-                  onClick={sendOtp}
-                  disabled={loading}
-                >
-                  {loading ? <Loader /> : "Send OTP"}
-                </button>
+  className="btn-modern w-full flex items-center justify-center  bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 dark:text-white "
+  onClick={sendOtp}
+  disabled={loading}
+>
+  {loading ? <Loader /> : "Send OTP"}
+</button>
+
               </div>
             ) : (
               <div className="space-y-4 w-full max-w-sm">
@@ -1420,7 +1423,7 @@ function LogIn() {
         <motion.div
           animate={{ x: signIn ? "0%" : "-100%" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="absolute top-0 left-1/2 w-full md:w-1/2 h-full bg-gradient-to-b from-primary-600 via-primary to-primary-800 text-white flex flex-col items-center justify-center p-6 md:p-8"
+          className="absolute top-0 left-1/2 w-full md:w-1/2 h-full bg-black text-white flex flex-col items-center justify-center p-6 md:p-8"
         >
           <ShoppingCart className="w-16 h-16 mb-6" />
           <h2 className="text-xl md:text-2xl font-bold mb-4">
@@ -1439,7 +1442,7 @@ function LogIn() {
               setOtp("");
               localStorage.removeItem("aky");
             }}
-            className="btn-modern-white"
+            className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
           >
             {signIn ? "Sign In" : "Sign Up"}
           </button>

@@ -19,7 +19,7 @@ export default function ForgotPasswordModal() {
       {/* Forgot Password Link */}
       <a
         href="#"
-        className="text-sm text-black mb-10 hover:text-red-500"
+        className="text-sm text-black mb-10 hover:text-red-500 dark:text-white dark:hover:text-amber-300"
         onClick={handleOpen}
       >
         Forgot your password?

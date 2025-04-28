@@ -963,6 +963,7 @@ const StoreInfoModal = ({ storeInfo, onClose, handleSubmit }) => {
 
   // Handle saving of the updated store information
   const handleSave = () => {
+    console.log("Store info");
     if (!validateForm()) return;
 
     console.log("Updated Store Information:", localStoreInfo);
