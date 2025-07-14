@@ -2,7 +2,7 @@
 
 <p align="center">
   <b>Team Members:</b><br>
-  Thamizh Jaisankar • [Add other members here]
+  Thamizh Jaisankar | Yeeswanth P L | Baskaran M S 
 </p>
 
 
@@ -10,11 +10,14 @@
 
 Comprify is an innovative AI-powered smart retail ecosystem that transforms both in-store and online shopping. It integrates embedded IoT hardware, computer vision, mobile platforms, cloud-based inventory and billing systems to provide a fully automated, multilingual and user-friendly retail experience. The system features a Smart Trolley equipped with a camera module and weight sensors, enabling real-time product recognition and automated billing which significantly reduces checkout times and improves operational efficiency.
 
+
+
 ### 🎯 Goals:
 - Eliminate checkout lines through real-time billing.
 - Offer AI-powered insights to stores.
 - Enable digital receipts and contactless transactions.
 - Support home delivery & multilingual mobile UI.
+
 
 
 ## 🚀 Features
@@ -30,6 +33,7 @@ Comprify is an innovative AI-powered smart retail ecosystem that transforms both
 - 📊 Use AI analytics for sales insights and personalized recommendations  
 
 
+
 ## 🛠️ Tech Stack
 
 | Category           | Tech Used                                         |
@@ -43,6 +47,7 @@ Comprify is an innovative AI-powered smart retail ecosystem that transforms both
 | **IoT Hardware**   | ESP32, HX711 + Load Cell, OV5640 Camera, PIR Sensor |
 | **Auth**           | JWT, OTP via Email                                |
 | **Testing**        | Jest (end-to-end testing)                         |
+
 
 
 ## 📦 Installation Guide
@@ -66,6 +71,7 @@ Configure your .env file with the following:
     JWT_SECRET=your_jwt_secret
     AWS_ACCESS_KEY=your_key
     AWS_SECRET_ACCESS=your_secret
+    
 
 📊 Future Enhancements
 🛍️ Home Delivery Integration
@@ -75,6 +81,7 @@ Configure your .env file with the following:
 📷 Smart Shelf and Rack Integration
 
 
+
 🧪 Testing
 
     --npm test
@@ -82,6 +89,7 @@ Configure your .env file with the following:
 - Unit and integration tests for:
 - API endpoints (Node.js)
 - Component rendering (React)
+
 
 
 📸 Screenshots
@@ -100,5 +108,5 @@ Replace these links with actual screenshots or GIFs.
 👨‍💻 Author
 Thamizh Jaisankar
 📧 thamizhjaisankar@gmail.com
-🔗 Portfolio • GitHub • LinkedIn
+🔗 Portfolio | GitHub | LinkedIn
 
