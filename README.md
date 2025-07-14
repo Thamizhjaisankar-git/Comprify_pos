@@ -1,5 +1,7 @@
 <h1 align="center">🛒 Comprify – Intelligent Shopping System</h1>
 
+
+
 <p align="center">
   <b>Team Members:</b><br>
   Thamizh J L | Yeeswanth P L | Baskaran M S 
