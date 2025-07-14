@@ -98,7 +98,7 @@ Configure your .env file with the following:
 ## 📸 Screenshots
 
 📱 Mobile App Interface
-![Mobile App Screenshot](screenshots/mobile-home.png)
+![Mobile App Screenshot]()
 
 🖥️ POS Dashboard
 
