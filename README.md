@@ -1,4 +1,4 @@
-![IMG-20250402-WA0067](https://github.com/user-attachments/assets/fd565551-b4af-4df4-8378-20121fd09931)<h1 align="center">🛒 Comprify – Intelligent Shopping System</h1>
+<h1 align="center">🛒 Comprify – Intelligent Shopping System</h1>
 
 <p align="center">
   <b>Team Members:</b><br>
