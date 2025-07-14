@@ -12,7 +12,7 @@ Comprify is an innovative AI-powered smart retail ecosystem that transforms both
 
 
 
-### 🎯 Goals:
+## 🎯 Goals:
 
 - Eliminate checkout lines through real-time billing.
 - Offer AI-powered insights to stores.
@@ -36,6 +36,7 @@ Comprify is an innovative AI-powered smart retail ecosystem that transforms both
 
 
 ## 🛠️ Tech Stack
+
 
 | Category           | Tech Used                                         |
 |--------------------|---------------------------------------------------|
@@ -74,7 +75,7 @@ Configure your .env file with the following:
     AWS_SECRET_ACCESS=your_secret
     
 
-### 📊 Future Enhancements
+## 📊 Future Enhancements
 
 - 🛍️ Home Delivery Integration
 - 🔁 Subscription-based Auto Orders
@@ -84,7 +85,7 @@ Configure your .env file with the following:
 
 
 
-### 🧪 Testing
+## 🧪 Testing
 
     --npm test
 
@@ -94,7 +95,7 @@ Configure your .env file with the following:
 
 
 
-### 📸 Screenshots
+## 📸 Screenshots
 
 📱 Mobile App Interface
 
