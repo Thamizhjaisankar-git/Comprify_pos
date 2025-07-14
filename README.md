@@ -2,7 +2,7 @@
 
 <p align="center">
   <b>Team Members:</b><br>
-  Thamizh Jaisankar | Yeeswanth P L | Baskaran M S 
+  Thamizh J L | Yeeswanth P L | Baskaran M S 
 </p>
 
 
@@ -13,6 +13,7 @@ Comprify is an innovative AI-powered smart retail ecosystem that transforms both
 
 
 ### 🎯 Goals:
+
 - Eliminate checkout lines through real-time billing.
 - Offer AI-powered insights to stores.
 - Enable digital receipts and contactless transactions.
@@ -74,11 +75,12 @@ Configure your .env file with the following:
     
 
 📊 Future Enhancements
-🛍️ Home Delivery Integration
-🔁 Subscription-based Auto Orders
-📈 AI-powered Insights for Retailers
-⚙️ Offline POS Sync
-📷 Smart Shelf and Rack Integration
+
+- 🛍️ Home Delivery Integration
+- 🔁 Subscription-based Auto Orders
+- 📈 AI-powered Insights for Retailers
+- ⚙️ Offline POS Sync
+- 📷 Smart Shelf and Rack Integration
 
 
 
@@ -93,7 +95,6 @@ Configure your .env file with the following:
 
 
 📸 Screenshots
-Replace these links with actual screenshots or GIFs.
 
 📱 Mobile App Interface
 
@@ -106,7 +107,8 @@ Replace these links with actual screenshots or GIFs.
 		
 
 👨‍💻 Author
-Thamizh Jaisankar
-📧 thamizhjaisankar@gmail.com
-🔗 Portfolio | GitHub | LinkedIn
+
+- Thamizh Jaisankar
+- 📧 thamizhjaisankar@gmail.com
+- 🔗 Portfolio | GitHub | LinkedIn
 
