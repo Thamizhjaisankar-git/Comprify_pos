@@ -1,4 +1,4 @@
-<h1 align="center">🛒 Comprify – Intelligent Shopping System</h1>
+![IMG-20250402-WA0067](https://github.com/user-attachments/assets/fd565551-b4af-4df4-8378-20121fd09931)<h1 align="center">🛒 Comprify – Intelligent Shopping System</h1>
 
 <p align="center">
   <b>Team Members:</b><br>
@@ -98,7 +98,7 @@ Configure your .env file with the following:
 ## 📸 Screenshots
 
 📱 Mobile App Interface
-
+![Mobile App Screenshot](screenshots/mobile-home.png)
 
 🖥️ POS Dashboard
 
@@ -107,7 +107,7 @@ Configure your .env file with the following:
 
 		
 
-### 👨‍💻 Author
+## 👨‍💻 Author
 
 - Thamizh Jaisankar
 - 📧 thamizhjaisankar@gmail.com
