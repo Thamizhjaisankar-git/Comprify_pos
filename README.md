@@ -111,5 +111,5 @@ Configure your .env file with the following:
 
 - Thamizh Jaisankar
 - 📧 thamizhjaisankar@gmail.com
-- 🔗 Portfolio | GitHub | LinkedIn
+- 🔗 [Portfolio](https://portfolio-fawn-beta-24.vercel.app/) | [GitHub](https://github.com/Thamizhjaisankar-git) | [LinkedIn](www.linkedin.com/in/thamizhjaisankar)
 
