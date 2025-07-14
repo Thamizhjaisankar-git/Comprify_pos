@@ -1,4 +1,4 @@
-<h1 align="center" text-decoration="none">🛒 Comprify – Intelligent Shopping System</h1>
+<h1 align="center" underline="none">🛒 Comprify – Intelligent Shopping System</h1>
 
 
 
