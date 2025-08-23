@@ -102,10 +102,10 @@ Configure your .env file with the following:
 📱 Mobile App Screens
 
 <p align="center">
-  <img src="src/mobile screenshots/welcome.jpg" alt="Profile" width="200" />
-  <img src="screenshots/notifications.png" alt="Notifications" width="200" />
-  <img src="screenshots/home.png" alt="Home" width="200" />
-  <img src="screenshots/product.png" alt="Product" width="200" />
+  <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
+  <img src="src/mobile screenshots/welcome.jpg" alt="Notifications" width="200" />
+  <img src="src/mobile screenshots/welcome.jpg" alt="Home" width="200" />
+  <img src="src/mobile screenshots/welcome.jpg" alt="Product" width="200" />
 </p>
 
 <p align="center">
