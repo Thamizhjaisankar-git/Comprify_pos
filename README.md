@@ -103,242 +103,90 @@ Configure your .env file with the following:
 
 <table width="100%">
   <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
+    <!-- gap -->
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
+   <!-- gap -->
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
+    </td>
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
+    <!-- gap -->
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
+   <!-- gap -->
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
+    </td>
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
+    <!-- gap -->
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
+   <!-- gap -->
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
+    </td>
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
+    <!-- gap -->
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
+   <!-- gap -->
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
+    </td>
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
+    <!-- gap -->
+    <td align="center" width="25%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
+   <!-- gap -->
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
+    </td>
+    <td align="center" width="25%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
   </tr>
-</table>
 
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="center" width="32%">
-      <img src="src/assets/mobile1.png" alt="Mobile App 1" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
-    </td>
-    <td width="2%"></td> <!-- gap -->
-    <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
-    </td>
-  </tr>
 </table>
 
 🖥️ POS Screenshots
@@ -346,11 +194,82 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
+      <img src="src/pos_screenshots/landing page.jpg" alt="Landing Page" width="100%">
     </td>
-    <td width="4%"></td> <!-- gap -->
     <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
+      <img src="src/pos_screenshots/land for pos.jpg" alt="landing page for pos" width="100%"> 
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/mobile landing.jpg" alt="Landing Page for mobile" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/sign up.jpg" alt="sign up" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/sign in.jpg" alt="sign in" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/otp.jpg" alt="otp" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/create bill.jpg" alt="create bill" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/bill history list.jpg" alt="bill history list" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/bill history - grid.jpg" alt="bill history - grid" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/add cust.jpg" alt="add cust" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/customer list - list.jpg" alt="customer list - list" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/cust grid.jpg" alt="cust grid" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/add product.jpg" alt="add product" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/product list -list.jpg" alt="product list -list" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/product grid.jpg" alt="product grid" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/category.jpg" alt="category" width="100%">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="left" width="48%">
+      <img src="src/pos_screenshots/category grid.jpg" alt="category grid" width="100%">
+    </td>
+    <td align="right" width="48%">
+      <img src="src/pos_screenshots/stock list.jpg" alt="stock list" width="100%">
     </td>
   </tr>
 </table>
@@ -358,119 +277,46 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
+      <img src="src/pos_screenshots/stock grid.jpg" alt="stock grid" width="100%">
     </td>
-    <td width="4%"></td> <!-- gap -->
     <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
+      <img src="src/pos_screenshots/add emp new.jpg" alt="add emp new" width="100%">
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
     <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
+      <img src="src/pos_screenshots/emp list.jpg" alt="emp list" width="100%">
     </td>
-    <td width="4%"></td> <!-- gap -->
     <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
+      <img src="src/pos_screenshots/emp grid.jpg" alt="emp grid" width="100%">
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
     <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
+      <img src="src/pos_screenshots/store info.jpg" alt="store info" width="100%">
     </td>
-    <td width="4%"></td> <!-- gap -->
     <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
+      <img src="src/pos_screenshots/edit store info.jpg" alt="edit store info" width="100%">
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
     <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
+      <img src="src/pos_screenshots/stock list.jpg" alt="stock list" width="100%">
     </td>
-    <td width="4%"></td> <!-- gap -->
     <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
+      <img src="src/pos_screenshots/stock grid.jpg" alt="stock grid" width="100%">
     </td>
   </tr>
-</table>
 
-<table width="100%">
   <tr>
     <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
+      <img src="src/pos_screenshots/trolley.jpg" alt="trolleys" width="100%">
     </td>
-    <td width="4%"></td> <!-- gap -->
     <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
-    </td>
-    <td width="4%"></td> <!-- gap -->
-    <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
-    </td>
-    <td width="4%"></td> <!-- gap -->
-    <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
-    </td>
-    <td width="4%"></td> <!-- gap -->
-    <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
-    </td>
-    <td width="4%"></td> <!-- gap -->
-    <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
-    </td>
-  </tr>
-</table>
-
-<table width="100%">
-  <tr>
-    <td align="left" width="48%">
-      <img src="src/assets/landingpage.png" alt="Landing Page" width="100%">
-    </td>
-    <td width="4%"></td> <!-- gap -->
-    <td align="right" width="48%">
-      <img src="src/assets/Dashboard.png" alt="Dashboard" width="100%">
+      <img src="src/pos_screenshots/trolley list.jpg" alt="trolley list" width="100%">
     </td>
   </tr>
 </table>
