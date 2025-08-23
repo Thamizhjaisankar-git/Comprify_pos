@@ -101,6 +101,20 @@ Configure your .env file with the following:
 
 📱 Mobile App Screens
 
+<p align="center">
+  <img src="screenshots/profile.png" alt="Profile" width="200" />
+  <img src="screenshots/notifications.png" alt="Notifications" width="200" />
+  <img src="screenshots/home.png" alt="Home" width="200" />
+  <img src="screenshots/product.png" alt="Product" width="200" />
+</p>
+
+<p align="center">
+  <img src="screenshots/review.png" alt="Review" width="200" />
+  <img src="screenshots/checkout.png" alt="Checkout" width="200" />
+  <img src="screenshots/cart.png" alt="Cart" width="200" />
+  <img src="screenshots/orders.png" alt="Orders" width="200" />
+</p>
+
 <table width="100%">
   <tr>
     <td align="center" width="32%">
