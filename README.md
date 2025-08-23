@@ -345,7 +345,7 @@ Configure your .env file with the following:
 
 <table width="100%">
   <tr>
-    <td align="left" width="48%">
+    <td align="left" width="60%">
       <img src="src/pos_screenshots/landing page.jpg" alt="Landing Page" width="100%">
     </td>
     <td width="4%"></td> <!-- gap -->
