@@ -101,34 +101,20 @@ Configure your .env file with the following:
 
 📱 Mobile App Screens
 
-<p align="center">
-  <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
-  <img src="src/mobile screenshots/welcome.jpg" alt="Notifications" width="200" />
-  <img src="src/mobile screenshots/welcome.jpg" alt="Home" width="200" />
-  <img src="src/mobile screenshots/welcome.jpg" alt="Product" width="200" />
-</p>
-
-<p align="center">
-  <img src="screenshots/review.png" alt="Review" width="200" />
-  <img src="screenshots/checkout.png" alt="Checkout" width="200" />
-  <img src="screenshots/cart.png" alt="Cart" width="200" />
-  <img src="screenshots/orders.png" alt="Orders" width="200" />
-</p>
-
 <table width="100%">
   <tr>
-    <td align="center" width="30%">
+    <td align="center" width="20%">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
     <!-- gap -->
-    <td align="center" width="30%">
+    <td align="center" width="20%">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
    <!-- gap -->
-    <td align="center" width="30%">
+    <td align="center" width="20%">
       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
-    <td align="center" width="30%">
+    <td align="center" width="20%">
       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
   </tr>
@@ -138,7 +124,7 @@ Configure your .env file with the following:
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
     <!-- gap -->
-    <td align="center" width="20%">
+    <td align="center">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
    <!-- gap -->
