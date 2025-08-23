@@ -119,20 +119,7 @@ Configure your .env file with the following:
     </td>
   </tr>
 
-  <tr>
-    <td align="center">
-       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
-    </td>
-    <td align="center">
-       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
-    </td>
-    <td align="center" width="30%">
-      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
-    </td>
-    <td align="center" width="30%">
-      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
-    </td>
-  </tr>
+ 
 
   
 </table>
