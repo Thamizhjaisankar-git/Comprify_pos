@@ -118,15 +118,18 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="center" width="32%">
-      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
     <!-- gap -->
     <td align="center" width="32%">
-      <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
    <!-- gap -->
     <td align="center" width="32%">
-      <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
+    </td>
+    <td align="center" width="32%">
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
   </tr>
 </table>
