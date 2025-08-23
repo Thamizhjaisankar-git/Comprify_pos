@@ -117,18 +117,18 @@ Configure your .env file with the following:
 
 <table width="100%">
   <tr>
-    <td align="center" width="32%">
+    <td align="center" width="30%">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
     <!-- gap -->
-    <td align="center" width="32%">
+    <td align="center" width="30%">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
    <!-- gap -->
-    <td align="center" width="32%">
+    <td align="center" width="30%">
       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
-    <td align="center" width="32%">
+    <td align="center" width="30%">
       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
   </tr>
