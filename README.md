@@ -120,11 +120,11 @@ Configure your .env file with the following:
     <td align="center" width="32%">
       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="100%">
     </td>
-    <td width="2%"></td> <!-- gap -->
+    <!-- gap -->
     <td align="center" width="32%">
       <img src="src/assets/mobile2.png" alt="Mobile App 2" width="100%">
     </td>
-    <td width="2%"></td> <!-- gap -->
+   <!-- gap -->
     <td align="center" width="32%">
       <img src="src/assets/mobile3.png" alt="Mobile App 3" width="100%">
     </td>
