@@ -104,18 +104,18 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="100%" />
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="100%" />
+       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="100%" />
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="100%" />
+      <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="250" />
     </td>
   </tr>
 
@@ -123,11 +123,9 @@ Configure your .env file with the following:
     <td align="center">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
-    <!-- gap -->
     <td align="center">
        <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
-   <!-- gap -->
     <td align="center" width="30%">
       <img src="src/mobile screenshots/welcome.jpg" alt="welcome page" width="200" />
     </td>
