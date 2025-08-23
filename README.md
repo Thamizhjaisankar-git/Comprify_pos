@@ -475,11 +475,6 @@ Configure your .env file with the following:
   </tr>
 </table>
 
-
-🧠 Smart Trolley & IoT Hardware
-
-		
-
 ## 👨‍💻 Author
 
 - Thamizh Jaisankar
