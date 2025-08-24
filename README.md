@@ -104,7 +104,7 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 001932.png" alt="welcome page" width="250" />
+       <img src="src/mobile screenshots/loadinginprior.png" alt=" page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
