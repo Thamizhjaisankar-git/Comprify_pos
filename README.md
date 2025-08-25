@@ -104,164 +104,147 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile_screenshots/revieworder.jpg" alt=" page" width="280" />
+       <img src="src/mobile_screenshots/welcome.jpg" alt="welcome page" width="280" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile_screenshots/.jpg" alt="welcome page" width="280" />
+       <img src="src/mobile_screenshots/loadingpageinprior.jpg" alt="loading page" width="280" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002005.png" alt="welcome page" width="280" />
+      <img src="src/mobile_screenshots/langs.jpg" alt="lang selection page" width="280" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002020.png" alt="welcome page" width="280" />
+      <img src="src/mobile_screenshots/home.jpg" alt="home page" width="280" />
     </td>
   </tr>
 
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002038.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/home2.jpg" alt="home2 page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002046.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/connecttrolley.jpg" alt="smart shopping page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002054.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/findstore.jpg" alt="find stores page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002102.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/qrscanner.jpg" alt="scanning page" width="250" />
     </td>
   </tr>
 
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002114.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/livecart.jpg" alt="live cart page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002124.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/searchany.jpg" alt="search page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002132.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/brsmarket.jpg" alt="brs market page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002142.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/products.jpg" alt="brs market page" width="250" />
     </td>
   </tr>
 
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002152.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/cokepage.jpg" alt="brs market page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002201.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/mycartsummary.jpg" alt="mycart page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002208.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/buy.jpg" alt="buy page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002215.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/paymentmethod.jpg" alt="payment options page" width="250" />
     </td>
   </tr>
 
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002228.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/paycontinue.jpg" alt="payment page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002238.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/adddebitcard.jpg" alt="payment page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002246.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/otpforpay.jpg" alt="payment options page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002253.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/revieworder.jpg" alt="revieworder page" width="250" />
     </td>
   </tr>
 
    <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002303.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/loading.jpg" alt="loading page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002316.png" alt="welcome page" width="250" />
+      <img src="src/mobile_screenshots/paymentsuccess.jpg" alt="payment success page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002325.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/mycart.jpg" alt="cart page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002332.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/history.jpg" alt="categories page" width="250" />
     </td>
   </tr>
 
    <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002341.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/history2.jpg" alt="categories page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002347.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/notify.jpg" alt="notify page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002353.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/searchstores.jpg" alt="searchstores page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002402.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/dmart.jpg" alt="dmart page" width="250" />
     </td>
   </tr>
 
    <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002409.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/searchshops.jpg" alt="searchshops page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002417.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/favstores.jpg" alt="favstores page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002429.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/profile2.jpg" alt="profile page" width="250" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002437.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/theme.jpg" alt="theme page" width="250" />
     </td>
   </tr>
 
    <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002446.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/editprofile.jpg" alt="edit profile page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002453.png" alt="welcome page" width="250" />
-    </td>
-   <!-- gap -->
-    <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002501.png" alt="welcome page" width="250" />
-    </td>
-    <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002510.png" alt="welcome page" width="250" />
-    </td>
-  </tr>
-
-   <tr>
-    <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002517.png" alt="welcome page" width="250" />
-    </td>
-    <!-- gap -->
-    <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 002528.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/profile.jpg" alt="profile page" width="250" />
     </td>
   </tr>
 
