@@ -104,18 +104,18 @@ Configure your .env file with the following:
 <table width="100%">
   <tr>
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/loadinginprior.png" alt=" page" width="250" />
+       <img src="src/mobile_screenshots/revieworder.jpg" alt=" page" width="280" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile screenshots/screenshot 2025-08-24 001952.png" alt="welcome page" width="250" />
+       <img src="src/mobile_screenshots/.jpg" alt="welcome page" width="280" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002005.png" alt="welcome page" width="250" />
+      <img src="src/mobile screenshots/screenshot 2025-08-24 002005.png" alt="welcome page" width="280" />
     </td>
     <td align="center" width="25%">
-      <img src="src/mobile screenshots/screenshot 2025-08-24 002020.png" alt="welcome page" width="250" />
+      <img src="src/mobile screenshots/screenshot 2025-08-24 002020.png" alt="welcome page" width="280" />
     </td>
   </tr>
 
