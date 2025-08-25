@@ -142,7 +142,7 @@ Configure your .env file with the following:
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile_screenshots/searchany.jpg" alt="search page" width="250" />
+       <img src="src/mobile_screenshots/seacrchany.jpg" alt="search page" width="250" />
     </td>
    <!-- gap -->
     <td align="center" width="25%">
@@ -210,42 +210,45 @@ Configure your .env file with the following:
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile_screenshots/notify.jpg" alt="notify page" width="250" />
+       <img src="src/mobile_screenshots/historyproducts.jpg" alt="historyproducts page" width="250" />
     </td>
    <!-- gap -->
+    <td align="center" width="25%">
+       <img src="src/mobile_screenshots/notify.jpg" alt="notify page" width="250" />
+    </td>
     <td align="center" width="25%">
        <img src="src/mobile_screenshots/searchstores.jpg" alt="searchstores page" width="250" />
     </td>
+  </tr>
+
+   <tr>
     <td align="center" width="25%">
        <img src="src/mobile_screenshots/dmart.jpg" alt="dmart page" width="250" />
     </td>
-  </tr>
-
-   <tr>
+    <!-- gap -->
     <td align="center" width="25%">
        <img src="src/mobile_screenshots/searchshops.jpg" alt="searchshops page" width="250" />
     </td>
-    <!-- gap -->
+   <!-- gap -->
     <td align="center" width="25%">
        <img src="src/mobile_screenshots/favstores.jpg" alt="favstores page" width="250" />
     </td>
-   <!-- gap -->
     <td align="center" width="25%">
        <img src="src/mobile_screenshots/profile2.jpg" alt="profile page" width="250" />
-    </td>
-    <td align="center" width="25%">
-       <img src="src/mobile_screenshots/theme.jpg" alt="theme page" width="250" />
     </td>
   </tr>
 
    <tr>
     <td align="center" width="25%">
-       <img src="src/mobile_screenshots/editprofile.jpg" alt="edit profile page" width="250" />
+       <img src="src/mobile_screenshots/theme.jpg" alt="theme page" width="250" />
     </td>
     <!-- gap -->
     <td align="center" width="25%">
-       <img src="src/mobile_screenshots/profile.jpg" alt="profile page" width="250" />
+       <img src="src/mobile_screenshots/editprofile.jpg" alt="edit profile page" width="250" />
     </td>
+     <td>
+       <img src="src/mobile_screenshots/profile.jpg" alt="profile page" width="250" />
+     </td>
   </tr>
 
 </table>
