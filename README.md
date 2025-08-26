@@ -377,10 +377,10 @@ Configure your .env file with the following:
 
   <tr>
     <td align="left" width="48%">
-      <img src="src/pos_screenshots/trolley.jpg" alt="trolley" width="100%">
+      <img src="src/pos_screenshots/tolley.jpg" alt="trolley" width="100%">
     </td>
     <td align="right" width="48%">
-      <img src="src/pos_screenshots/trolley list.jpg" alt="trolley list" width="100%">
+      <img src="src/pos_screenshots/tolley list.jpg" alt="trolley list" width="100%">
     </td>
   </tr>
 </table>
